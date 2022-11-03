@@ -1,4 +1,5 @@
 import { Route, Routes } from "react-router-dom"
+import { Footer } from "./components/footer"
 import { About } from "./pages/about"
 import { History } from "./pages/history"
 import { Home } from "./pages/home"
@@ -16,6 +17,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/historico" element={<History />} />
       </Routes>
+      <Footer />
     </div>
   )
 }
