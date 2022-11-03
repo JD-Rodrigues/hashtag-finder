@@ -42,3 +42,22 @@ html {
   transition: 0.5s;
 }
 
+/* Está definindo as cores e tipografia usado no site */
+:root{
+  --darkBlue:#0A1744;
+  --cyan:#72EFDB;
+  --lightBlue:#1E3E7B;
+
+  --textWhite-first:#ffffff; 
+  --textWhite-second:#FCFCFC;
+
+  --textGrey:#D9D9D9;
+  --textCyan:#72EFDB;
+  --textDarkBlue:#0B1741;
+  
+  --linearGradiente:transparent linear-gradient(180deg, #0A174400 0%, var(--darkBlue)  100%) 0% 0% no-repeat padding-box;
+
+  --typoRubik:'Rubik', sans-serif;
+  --typoMont:'Montserrat', sans-serif;
+}
+
