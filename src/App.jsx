@@ -1,8 +1,8 @@
 import { Route, Routes } from "react-router-dom"
-import { About } from "./pages/about/about"
-import { History } from "./pages/history/history"
-import { Home } from "./pages/home/home"
-import { Login } from "./pages/login/login"
+import { About } from "./pages/about"
+import { History } from "./pages/history"
+import { Home } from "./pages/home"
+import { Login } from "./pages/login"
 
 
 function App() {
