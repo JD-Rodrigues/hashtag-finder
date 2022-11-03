@@ -1,3 +1,5 @@
+import { Footer } from "../../components/footer"
+
 export const Home = () => {
 
   return(

@@ -1,8 +1,9 @@
 import { Route, Routes } from "react-router-dom"
-import { About } from "./pages/about/about"
-import { History } from "./pages/history/history"
-import { Home } from "./pages/home/home"
-import { Login } from "./pages/login/login"
+import { Footer } from "./components/footer"
+import { About } from "./pages/about"
+import { History } from "./pages/history"
+import { Home } from "./pages/home"
+import { Login } from "./pages/login"
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/historico" element={<History />} />
       </Routes>
+      <Footer />
     </div>
   )
 }
