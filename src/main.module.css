@@ -62,7 +62,8 @@ html {
 
   --dark-blue:#0A1744;
   --cyan:#72EFDB;
-  --light-blue:#1E3E7B;
+  --light-blue:rgb(30, 62, 123);
+  --light-blue-opaque:#3d5a91;
 
   --text-white-first:#ffffff; 
   --text-white-second:#FCFCFC;
@@ -76,6 +77,8 @@ html {
  
   --typo-rubik:'Rubik' ;
   --typo-mont:'Montserrat';
+
+  font-family: 'Rubik';
   
 }
 

@@ -4,3 +4,40 @@
   min-height: 100vh;
   border: solid red;
 }
+
+.search__section {
+  display: flex;
+  flex-direction: column;
+  row-gap: 70px;
+}
+
+.search__section__text {
+  text-align: left;
+  color: var(--text-white-first);
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.title {
+  font-size: 36px;
+  line-height: 39px;
+  font-weight: bold;
+}
+
+.description {
+  font-size: 16px;
+  line-height: 22px;
+}
+
+.search__wrapper {
+  display: flex;
+  width: 350px;
+  height: 50px;
+  background-color: var(--light-blue-opaque);
+}
+
+input[type='search'] {
+  background-color: transparent;
+  border: none;
+}
