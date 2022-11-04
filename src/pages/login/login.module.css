@@ -1,0 +1,160 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Rubik';
+    font-weight: 400;
+}
+
+.container {
+    font-family:'Rubik';
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/*Css do formulário*/
+
+.login__form {
+    margin-top: 119px;
+    margin-bottom: 119px;
+    width: 553px;
+    height: 608px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background: #0A174485;
+    border-radius: 14px;
+    backdrop-filter: blur(30px);
+    opacity: 1;
+    
+
+}
+
+.login__form__title {
+    margin-top: 131px;
+    margin-bottom: 75px;
+    width: 97px;
+    height: 42px;
+    text-align: left;
+    font: normal normal bold 35px/21px Rubik;
+    letter-spacing: 0px;
+    color: #72EFDB;
+    opacity: 1;
+}
+
+.access__button {
+    margin-top: 22px;
+    border: none;
+    width: 205px;
+    height: 56px;
+    background: #72EFDB 0% 0% no-repeat padding-box;
+    border-radius: 34px;
+    opacity: 1;
+    color: #0B1741;
+    font: normal normal bold 17px/13px Rubik;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+ 
+.access__button:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.inputs__area {
+    position: relative;
+    border-bottom: 2px solid #E9E9F0;
+    margin-bottom: 44px;   
+}
+
+.input {
+    width: 457px;
+    height: 31px;
+    font-weight: 400;
+    color: #FFFFFF;
+    line-height: 1.2;
+    border: none;
+    display: block;
+    background-color: transparent;
+    padding: 0 5px;
+}
+
+.input:focus {
+    outline: none;
+}
+
+.input:focus + .focus__input::after {
+    top: -15px;
+}
+
+.input:focus + .focus__input::before {
+    width: 100%;
+}
+
+.has__value {
+    width: 457px;
+    height: 31px;
+    font-weight: 400;
+    color: #FFFFFF;
+    line-height: 1.2;
+    border: none;
+    display: block;
+    background-color: transparent;
+    padding: 0 5px;
+}
+
+.has__value:focus {
+    outline: none;
+}
+
+.has__value + .focus__input::after {
+    top: -15px;
+}
+
+.has__value + .focus__input::before {
+    width: 100%;
+}
+
+.focus__input{
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    color: white;
+}
+
+/*Para fazer efeito gradiente na linha abaixo do input*/
+
+.focus__input::before {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px; 
+
+
+    background: -webkit-linear-gradient(to left, #0A1744, #72EFDB);
+    background: -o-linear-gradient(to left, #0A1744, #72EFDB);
+    background: -moz-linear-gradient(to left, #0A1744, #72EFDB);
+    background: linear-gradient(to left, #0A1744, #72EFDB);
+}
+
+.focus__input::after {
+    font: normal normal normal 17px/25px Rubik;
+    color: #fff;
+    
+    line-height: 0;
+    content: attr(data-placeholder);
+    display: block;
+    width: 100%;
+    position: absolute;
+    top: 16px;
+    left: 0;
+    padding-left: 5px;
+}
+
