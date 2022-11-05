@@ -1,4 +1,5 @@
-import styles from "./styles.module.css"
+import styles from "./styles.module.css";
+import homeIcon from '../../../public/images/icons/icon-home.svg';
 
 export const Header = () => {
   return(

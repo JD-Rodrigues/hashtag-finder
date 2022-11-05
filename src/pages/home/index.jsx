@@ -15,7 +15,7 @@ export const Home = () => {
             <p className={styles.description}>Digite o que deseja no campo de buscas e confira os resultados do Twitter abaixo.</p>
           </div>
           <div className={styles.search__wrapper}>
-            <img src={searchIcon} alt="" />
+            <img src={searchIcon} className={styles.search__icon} alt="" />
             <form action="">
               <input type="search" placeholder="Buscar..." />
             </form>
