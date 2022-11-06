@@ -88,6 +88,16 @@ input[type='search']::placeholder{
 }
 
 @media (min-width:1920px) {
+  .search__section{
+    height: 100%;
+    row-gap: 190px;
+  }
+
+  .search__section__text {
+
+    row-gap: 60px;
+  }
+
   .title {
     font-size: 80px;
   }
@@ -98,20 +108,33 @@ input[type='search']::placeholder{
 
   .search__wrapper {
     width: 1000px;
-    height: auto;
+    height: 120px;
+    padding: 0px 60px;
     border-radius: 60px;
-    column-gap: 45px;
+  }
+
+  form {
+    width: 100%;
+    height: 100%;
+  }
+
+  input{
+    padding: 15px;
+    width: 100%;
+    height: 100%;
   }
 
   .search__icon {
-    width: 20px;
+    width: 30px;
   }
 
   input[type='search']::placeholder{
-    font-size: 30px;
+    font-size: 50px;
     padding: 10px;
     
   }
+
+  
 }
 
 
