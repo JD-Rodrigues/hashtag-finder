@@ -2,7 +2,7 @@
 .first__class {
   width: 100%;
   min-height: 740px;
-  padding: 140px 140px 0 140px;
+  padding: 50px 30px 0 30px;
   background-image: url('../../../public/images/backgrounds/mobile-hero-bg.jpg');
   background-position: center;
   background-size: cover;
@@ -12,5 +12,12 @@
 @media (min-width: 769px) {
   .first__class {
     background-image: url('../../../public/images/backgrounds/hero-bg.jpg');
+  }
+}
+
+@media (min-width:1920px) {
+  .first__class {
+    min-height: auto;
+    padding: 140px 140px 0 140px;
   }
 }

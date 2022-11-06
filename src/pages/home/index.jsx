@@ -20,6 +20,12 @@ export const Home = () => {
               <input className={styles.search} type="search" placeholder="Buscar..." />
             </form>
           </div>
+          {/* <p className={styles.results__subtitle}>
+              Exibindo os 10 resultados mais recentes para 
+              <span> 
+                {` #natureza`}
+              </span>
+          </p> */}
         </div>
       </FirstSection>
     </div>
