@@ -1,10 +1,9 @@
 import React from 'react'
 import styles from "./about.module.css"
 import ilustration from '/public/images/icons/about-ilustration.svg'
-import logo from '/public/images/icons/logo.svg'
-import about from '/public/images/backgrounds/about-hero-bg.jpg'
-// import { FaInfoCircle } from 'react-icons/fa'
-// import { FaUserAlt } from 'react-icons/fa'
+import logo from '/images/icons/logo.svg'
+import userIcon from '/images/icons/icon-user-alt.svg'
+import infoIcon from '/images/icons/icon-info-circle.svg'
 import git from '/public/images/icons/icon-github.svg'
 import email from '/public/images/icons/icon-envelope.svg'
 import linkedin from '/public/images/icons/icon-awesome-linkedin.svg'
@@ -15,17 +14,11 @@ export const About = () => {
   
   return(
     <div>
-      < div className={styles.header__about}>
-        <div className={styles.header__logo}>
-          <div className={styles.logo} >
-            <img className={styles.logo} src={logo} alt="" />
-          </div>
-        </div>
-        <div className={styles.box__btn} >
-          <button type='button' id={styles.btn__sobre} > <FaInfoCircle/> SOBRE </button>
-          <button type='button' id={styles.btn__login} > <FaUserAlt/> LOGIN </button>
-        </div>
-      </div>
+      
+
+
+
+
       <div className={styles.box__fist__section}>
         <div className={styles.fist__section} >
           <div className={styles.text__box} >
@@ -71,10 +64,9 @@ export const About = () => {
             
               <div className={styles.cards} >
                 <div className={styles.card__pic02} ></div>
-                <h2 className={styles.card__name} >Nome Sobrenome</h2>
+                <h2 className={styles.card__name} > Eliel Silva </h2>
                 <p className={styles.card__text} >
-                  Lorem ipsum dolor sit amet, consetetur sadipscing 
-                  elitr, sed diam nonumy eirmod
+                19 anos, Desenvolvedor web front-end em formação
                   </p>
                 <div className={styles.icons__list}>
                   <img src={git} className={styles.icons__git} ></img>
@@ -123,3 +115,25 @@ export const About = () => {
     </div>
   )
 }
+
+
+
+/* 
+
+< div className={styles.header__about}>
+        <div className={styles.header__logo}>
+          <div className={styles.logo} >
+            <img className={styles.logo} src={logo} alt="" />
+          </div>
+        </div>
+        <div className={styles.box__btn} >
+          <button type='button' id={styles.btn__sobre} > 
+          <img className={styles.info__icon} 
+          src={infoIcon} alt=""></img> SOBRE </button>
+          <button type='button' id={styles.btn__login} > 
+          <img className={styles.user__icon} 
+          src={userIcon} alt=""></img> LOGIN </button>
+        </div>    
+      </div>
+
+      */
