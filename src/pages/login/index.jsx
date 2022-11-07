@@ -1,7 +1,7 @@
 import styles from './login.module.css';
 import { FirstSection } from "../../components/firstSection"
 import { useState } from 'react';
-import homeIcon from '../../../public/images/icons/home-icon.png';
+/*  import homeIcon from '../../public/images/icons/home-icon.png';  */
 
 export const Login = () => {
   const [user, setUser] = useState("");

@@ -8,10 +8,9 @@ body {
 }
 
 .logo {
-    width: 80px;
-    height: 20px;
-    background-image: url ("../public/icons/logo.svg");
-    background-color: #72EFDB;
+    width: 239px;
+    height: 42px;
+    
 }
 
 .header__about {
@@ -37,27 +36,39 @@ button {
     height: 49px;
     border-radius: 25px;
     border: transparent;
+    margin-left: 35px;
 }
 
-.btn__sobre {
-    background-color: #72EFDB;
+#btn__sobre {
+    
+    background-color: var(--cyan);
 }
 
-.btn__login {
-    background-color: #1E3E7B;
+#btn__login {
+    background-color: var(--light-blue);
+}
+
+.box__fist__section {
+    width: 100%;
+    height: auto;
+    background: linear-gradient(0deg, #0a1744 0%, #090979 53%, #0b298c 100%);    
+    
+    
+    /*background-image: url(/public/images/backgrounds/about-hero-bg.jpg);*/
 }
 
 .fist__section {
     
-    width: 100%;
+    width: 80%;
     height: 1033px;
-    background-color: transparent;
+    
     display: flex;
-    justify-content: space-around;
     align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-left: auto;
+    margin-right: auto;
 }
-
-
 
 .text__title {
     color: #ffffff;
@@ -70,57 +81,139 @@ button {
     width: 763px;
     font-size: 21px;
     line-height: 38px;
-
 }
 
 .img__decor {
     width: 637px;
     height: 537px;
-    background-color: #ffffff;
+    
 }
 
 .second__section {
-    height: 1269px;
+    height: auto;
     background-color: #0A1744;
-}
-
-.cards__list {
-    margin: auto;
-
-    
-    
-    display: grid;
-    grid-gap: 15px;
-    grid-template-columns: repeat(4, minmax(220px, 2fr));
-    justify-items: center;
 }
 
 .cards__tittle {
     font-size: 54px;
+    color: #ffffff;
 }
 
+.cards__container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    height: auto;
+}
+
+.cards__list {
+    padding-top: 108px;
+    padding-bottom: 188px;
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-items: center;
+    justify-content: center;
+}
+
+
+
+
+
 .cards {
+    margin: 20px;
     width: 369px;
     height: 461px;
     border-radius: 10px;
     border: 1px solid #FFFFFF24;
     box-shadow: 0px 5px 10px #5538EE14;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 35px 40px 35px 40px;
+    
 }
 
-.card__pic {
+.card__pic01 {
     width: 178px;
     height: 178px;
-    background-color: #ffffff;
+    background-image: url(https://avatars.githubusercontent.com/u/101682774?v=4);
+    background-size: 110% 110%;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 100%;
+}
+
+.card__pic02 {
+    width: 178px;
+    height: 178px;
+    background-image: url(https://avatars.githubusercontent.com/u/101727770?v=4);
+    background-size: 110% 110%;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 100%;
+}
+
+.card__pic03 {
+    width: 178px;
+    height: 178px;
+    background-image: url(https://avatars.githubusercontent.com/u/87840631?v=4);
+    background-size: 110% 110%;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 100%;
+}
+
+.card__pic04 {
+    width: 178px;
+    height: 178px;
+    background-image: url(https://avatars.githubusercontent.com/u/101745105?v=4);
+    background-size: 110% 110%;
+    background-repeat: no-repeat;
+    background-position: center;
     border-radius: 100%;
 }
 
 .card__name {
+    width: 100%;
     color: #72EFDB;
     font-size: 28px;
+    text-align: center;
+    padding-top: 22px;
+    padding-bottom: 22px;
 }
 
 .card__text {
+    width: 100%;
     color: #D9D9D9;
     font-size: 19px;
     line-height: 25px;
+    text-align: center;
+    
+    padding-bottom: 22px;
+}
+
+.icons__list {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.icons__git {
+    
+    width: 30px;
+    height: 30px;
+}
+
+.icons__mail {
+    
+    width: 30px;
+    height: 30px;
+}
+
+.icons__linkedin {
+    
+    width: 30px;
+    height: 30px;
 }
