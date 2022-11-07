@@ -12,9 +12,7 @@
 }
 
 .title {
-    text-align: left;
     display: flex;
-    color: #FFFFFF;
     align-items: center;
 }
 
@@ -46,13 +44,13 @@
 
 /*Responsividade header*/
 
-@media (min-width:375px) {
+@media (min-width:280px) {
     .header {
       height: 82px;
     }
 
     .title {
-        font-size: 20px;
+        height: 23px;
         margin-left: 16px;
     }
 
@@ -76,7 +74,7 @@
     }
 
     .title {
-        font-size: 28px;
+        height: 30px;
         margin-left: 64px;
     }
 
@@ -101,20 +99,16 @@
     }
 
     .title {
-        font-size: 35px;
-        width: 239px;
         height: 42px;
     }
 
     .home__button{
-        margin-right: 64px;
         width: 170px;
         height: 49px;
         font: normal normal bold 17px/13px Rubik;
     }
 
     .home__icon {
-        height: 16px;
-        
+        height: 16px;     
     }
   }

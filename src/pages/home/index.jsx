@@ -15,11 +15,17 @@ export const Home = () => {
             <p className={styles.description}>Digite o que deseja no campo de buscas e confira os resultados do Twitter abaixo.</p>
           </div>
           <div className={styles.search__wrapper}>
-            <img src={searchIcon} alt="" />
-            <form action="">
-              <input type="search" placeholder="Buscar..." />
+            <img src={searchIcon} className={styles.search__icon} alt="" />
+            <form className={styles.form__search} action="">
+              <input className={styles.search} type="search" placeholder="Buscar..." />
             </form>
           </div>
+          {/* <p className={styles.results__subtitle}>
+              Exibindo os 10 resultados mais recentes para 
+              <span> 
+                {` #natureza`}
+              </span>
+          </p> */}
         </div>
       </FirstSection>
     </div>

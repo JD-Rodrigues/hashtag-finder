@@ -9,8 +9,22 @@
   background-repeat: no-repeat;
 }
 
-@media (min-width: 769px) {
+@media (min-width: 768px) {
   .first__class {
     background-image: url('../../../public/images/backgrounds/hero-bg.jpg');
+  }
+}
+
+@media (min-width:1112px) {
+  .first__class {
+    min-height: auto;
+    padding: 80px 80px 0 80px;
+  }
+}
+
+@media (min-width:1920px) {
+  .first__class {
+    min-height: auto;
+    padding: 140px 140px 0 140px;
   }
 }
