@@ -95,7 +95,6 @@
   .search__section{
     height: 100%;
     row-gap: 100px;
-    border: red solid;
   }
 
   .search__section__text {
