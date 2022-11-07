@@ -16,7 +16,7 @@ export const Home = () => {
           </div>
           <div className={styles.search__wrapper}>
             <img src={searchIcon} className={styles.search__icon} alt="" />
-            <form action="">
+            <form className={styles.form__search} action="">
               <input className={styles.search} type="search" placeholder="Buscar..." />
             </form>
           </div>
