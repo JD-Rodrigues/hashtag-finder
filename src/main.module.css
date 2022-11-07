@@ -61,11 +61,13 @@ html {
 :root{
 
   --dark-blue:#0A1744;
+  --dark-blue-opaque:#0B1A49;
   --cyan:#72EFDB;
   --light-blue:rgb(30, 62, 123);
   --light-blue-opaque:#1e3e7b;
 
   --text-white-first:#ffffff; 
+  --text-white-opaque:rgba(255, 255, 255, 0.24); 
   --text-white-second:#FCFCFC;
 
   --text-grey:#D9D9D9;
