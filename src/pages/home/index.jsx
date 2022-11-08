@@ -4,6 +4,7 @@ import styles from "./styles.module.css"
 import searchIcon from "../../../public/images/icons/icon-search.svg"
 import { useState } from "react"
 import { TweetCard } from "../../components/tweetCard"
+import { ImageCard } from "../../components/imageCard"
 
 
 export const Home = () => {
@@ -35,19 +36,36 @@ export const Home = () => {
           <div className={resultTab === 'Tweets' ? styles.active__tab : styles.tab__tweets}>Tweets</div>
           <div className={resultTab === 'Images' ? styles.active__tab : styles.tab__images}>Imagens</div>
         </div>
-        <div className={styles.result__tweets}>
-          <TweetCard />
-          <TweetCard />
-          <TweetCard />
-          <TweetCard />
-          <TweetCard />
-          <TweetCard />
-          <TweetCard />
-          <TweetCard />
-          <TweetCard />
-          <TweetCard />
-        </div>
-        
+        { 
+          
+          resultTab === 'Tweets' 
+          ? 
+            <div className={styles.result__tweets}>
+              <TweetCard />
+              <TweetCard />
+              <TweetCard />
+              <TweetCard />
+              <TweetCard />
+              <TweetCard />
+              <TweetCard />
+              <TweetCard />
+              <TweetCard />
+              <TweetCard />
+            </div>
+          : <div className={styles.result__images}>
+              <ImageCard />
+              <ImageCard />
+              <ImageCard />
+              <ImageCard />
+              <ImageCard />
+              <ImageCard />
+              <ImageCard />
+              <ImageCard />
+              <ImageCard />
+              <ImageCard />
+            </div>
+         
+        }
       </section>
     </div>
   )
