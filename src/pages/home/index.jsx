@@ -17,6 +17,7 @@ export const Home = () => {
   }
   
   useEffect(()=>{
+    watchResize()
     window.addEventListener('resize', watchResize)
     return () => {
       window.removeEventListener('resize', watchResize)
