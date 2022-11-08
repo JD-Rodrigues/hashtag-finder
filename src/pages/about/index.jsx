@@ -37,7 +37,7 @@ export const About = () => {
           </div>
           
           <div className={styles.img__decor} > 
-            <img src={ilustration} alt="" />
+            <img className={styles.img__decor__frame} src={ilustration} alt="" />
           </div>  
         </div>
       </div>
@@ -48,7 +48,7 @@ export const About = () => {
             <div className={styles.cards__list} > 
               
               <div className={styles.cards} >
-                <div className={styles.card__pic01} ></div>
+                <div id='card__pic' className={styles.card__pic01} ></div>
                 <h2 className={styles.card__name} >Bruno Ferreira</h2>
                 <p className={styles.card__text} >
                 Dev front-end | Html | Css | JavaScript | React | TypeScript | NextJs | Designer | UX / UI |
