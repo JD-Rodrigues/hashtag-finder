@@ -22,4 +22,18 @@
   font-weight: bold;
 }
 
+@media (min-width: 1112px) {
+  .card {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .card {
+    width: 290px;
+    height: 290px;
+  }
+}
+
 
