@@ -30,11 +30,13 @@ function App() {
                     <MenuButton 
                       text = "SOBRE" 
                       icon = {infoIcon} 
+                      link = "/sobre"
                       color = "contrast" 
                     /> 
                     <MenuButton 
                       text = "LOGIN" 
                       icon = {loginIcon} 
+                      link = "/login"
                       color = ""
                     />
                   </> 
@@ -46,11 +48,13 @@ function App() {
                     <MenuButton 
                       text = "HOME" 
                       icon = {homeIcon} 
+                      link = "/"
                       color = "contrast" 
                     /> 
                     <MenuButton 
                       text = "LOGIN" 
                       icon = {loginIcon} 
+                      link = "/login"
                       color = ""
                     />
                   </> 
@@ -61,6 +65,7 @@ function App() {
                     <MenuButton 
                       text = "HOME" 
                       icon = {homeIcon} 
+                      link = "/"
                       color = "contrast" 
                     />  
             }
@@ -71,6 +76,7 @@ function App() {
                     <MenuButton 
                       text = "HOME" 
                       icon = {homeIcon} 
+                      link = "/"
                       color = "contrast" 
                     /> 
                     <MenuButton 
