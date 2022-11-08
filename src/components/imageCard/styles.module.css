@@ -1,0 +1,39 @@
+
+
+.card {
+  width: 170px;
+  height:170px;
+  padding: 14px;
+  border-radius: 21px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-size: 10px;
+  line-height: 11px;
+  color: var(--text-white-first);
+}
+
+.username {
+  font-size: 12px;
+  line-height: 13px;
+  font-weight: bold;
+}
+
+@media (min-width: 1112px) {
+  .card {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .card {
+    width: 290px;
+    height: 290px;
+  }
+}
+
+
