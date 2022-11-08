@@ -1,9 +1,9 @@
 import styles from "./App.module.css"
 import { Route, Routes, useLocation } from "react-router-dom"
-import homeIcon from '../public/images/icons/icon-home.svg';
-import infoIcon from '../public/images/icons/icon-info-circle.svg';
-import logoffIcon from '../public/images/icons/icon-power-off.svg';
-import loginIcon from '../public/images/icons/icon-user-alt.svg';
+import homeIcon from '/images/icons/icon-home.svg';
+import infoIcon from '/images/icons/icon-info-circle.svg';
+import logoffIcon from '/images/icons/icon-power-off.svg';
+import loginIcon from '/images/icons/icon-user-alt.svg';
 import logo from '../public/images/icons/logo.svg';
 import { Footer } from "./components/footer"
 import { About } from "./pages/about"

@@ -5,12 +5,12 @@ import searchIcon from "../../../public/images/icons/icon-search.svg"
 import { useEffect, useState } from "react"
 import { TweetCard } from "../../components/tweetCard"
 import { ImageCard } from "../../components/imageCard"
-import { useResizeDetector } from "react-resize-detector"
+
 
 
 export const Home = () => {
   const [resultTab, setResultTab] = useState('tweets')
-  const {width} = useResizeDetector()
+
   
   const watchResize = () => {
     window.innerWidth > 899 ? setResultTab('both'): setResultTab('tweets')
