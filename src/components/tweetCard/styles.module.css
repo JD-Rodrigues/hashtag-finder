@@ -39,3 +39,58 @@
   text-decoration: none;
   color: var(--text-cyan);
 }
+
+@media (min-width: 1112px) {
+  .card {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .header {
+    font-size: 18px;
+  }
+  
+  .user {
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  .footer {
+    margin-top: 10px;
+    font-size: 12px;
+    line-height: 22px;  
+  }
+}
+
+@media (min-width: 1920px) {
+  .card {
+    width: 100%;
+    padding: 40px;
+    font-size: 19px;
+    line-height: 25px;
+  }
+
+  .card img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+  }
+
+  .header {
+    font-size: 27px;
+    line-height: 30px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .user {
+    font-size: 20px;
+  }
+
+  .footer {
+    margin-top: 10px;
+    font-size: 20px;
+  }
+
+}

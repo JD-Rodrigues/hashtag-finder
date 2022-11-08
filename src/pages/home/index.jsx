@@ -2,12 +2,27 @@ import { FirstSection } from "../../components/firstSection"
 import { Footer } from "../../components/footer"
 import styles from "./styles.module.css"
 import searchIcon from "../../../public/images/icons/icon-search.svg"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { TweetCard } from "../../components/tweetCard"
+import { ImageCard } from "../../components/imageCard"
+import { useResizeDetector } from "react-resize-detector"
 
 
 export const Home = () => {
-  const [resultTab, setResultTab] = useState('Tweets')
+  const [resultTab, setResultTab] = useState('tweets')
+  const {width} = useResizeDetector()
+  
+  const watchResize = () => {
+    window.innerWidth > 899 ? setResultTab('both'): setResultTab('tweets')
+  }
+  
+  useEffect(()=>{
+    window.addEventListener('resize', watchResize)
+    return () => {
+      window.removeEventListener('resize', watchResize)
+    }
+  },[])
+  
   return(
     <div className={styles.main}>
       <FirstSection>
@@ -32,21 +47,72 @@ export const Home = () => {
           </span>
         </p>  
         <div className={styles.result__tabs}>
-          <div className={resultTab === 'Tweets' ? styles.active__tab : styles.tab__tweets}>Tweets</div>
-          <div className={resultTab === 'Images' ? styles.active__tab : styles.tab__images}>Imagens</div>
+          <div onClick={()=> setResultTab('tweets')} className={resultTab === 'tweets' ? styles.active__tab : styles.tab__tweets}>Tweets</div>
+          <div onClick={()=> setResultTab('images')}  className={resultTab === 'images' ? styles.active__tab : styles.tab__images}>Imagens</div>
         </div>
-        <div className={styles.result__tweets}>
-          <TweetCard />
-          <TweetCard />
-          <TweetCard />
-          <TweetCard />
-          <TweetCard />
-          <TweetCard />
-          <TweetCard />
-          <TweetCard />
-          <TweetCard />
-          <TweetCard />
-        </div>
+        { 
+          
+          resultTab === 'tweets' 
+          && 
+            <div className={styles.result__tweets}>
+              <TweetCard />
+              <TweetCard />
+              <TweetCard />
+              <TweetCard />
+              <TweetCard />
+              <TweetCard />
+              <TweetCard />
+              <TweetCard />
+              <TweetCard />
+              <TweetCard />
+            </div>
+        }
+
+        {
+         resultTab === 'images' &&
+          <div className={styles.result__images}>
+              <ImageCard />
+              <ImageCard />
+              <ImageCard />
+              <ImageCard />
+              <ImageCard />
+              <ImageCard />
+              <ImageCard />
+              <ImageCard />
+              <ImageCard />
+              <ImageCard />
+          </div>
+        }
+          
+        {
+          resultTab === 'both' &&
+          <div className={styles.result__wrapper}>
+            <div className={styles.result__images}>
+              <ImageCard />
+              <ImageCard />
+              <ImageCard />
+              <ImageCard />
+              <ImageCard />
+              <ImageCard />
+              <ImageCard />
+              <ImageCard />
+              <ImageCard />
+              <ImageCard />
+            </div>
+            <div className={styles.result__tweets}>
+              <TweetCard />
+              <TweetCard />
+              <TweetCard />
+              <TweetCard />
+              <TweetCard />
+              <TweetCard />
+              <TweetCard />
+              <TweetCard />
+              <TweetCard />
+              <TweetCard />
+            </div>
+          </div>
+        }
         
       </section>
     </div>
