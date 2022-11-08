@@ -5,7 +5,7 @@ import { useState } from 'react';
 export const Login = () => {
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
-
+ 
   return(
     <FirstSection>
       <div className={styles.container}>

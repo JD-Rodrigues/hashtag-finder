@@ -15,23 +15,78 @@ import { MenuButton } from "./components/menuButton";
 
 function App() {
   const location = useLocation()
-  console.log(location)
 
   return (
     <div className="App">
       <header className={styles.header}>
           <div className={styles.title}>
-            <img src={logo} alt='logo' className={styles.title} />
+            <img src={logo} alt='logo' className={styles.logo} />
           </div>
-          <div className={styles.home}>
-            <MenuButton text = "HOME" />
+          <div className={styles.menu}>
+            {
+              location.pathname === "/" 
+                && 
+                  <>
+                    <MenuButton 
+                      text = "SOBRE" 
+                      icon = {infoIcon} 
+                      color = "contrast" 
+                    /> 
+                    <MenuButton 
+                      text = "LOGIN" 
+                      icon = {loginIcon} 
+                      color = ""
+                    />
+                  </> 
+            }
+            {
+              location.pathname === "/sobre" 
+                && 
+                  <>
+                    <MenuButton 
+                      text = "HOME" 
+                      icon = {homeIcon} 
+                      color = "contrast" 
+                    /> 
+                    <MenuButton 
+                      text = "LOGIN" 
+                      icon = {loginIcon} 
+                      color = ""
+                    />
+                  </> 
+            }
+            {
+              location.pathname === "/login" 
+                && 
+                    <MenuButton 
+                      text = "HOME" 
+                      icon = {homeIcon} 
+                      color = "contrast" 
+                    />  
+            }
+            {
+              location.pathname === "/buscas" 
+                && 
+                  <>
+                    <MenuButton 
+                      text = "HOME" 
+                      icon = {homeIcon} 
+                      color = "contrast" 
+                    /> 
+                    <MenuButton 
+                      text = "SAIR" 
+                      icon = {logoffIcon} 
+                      color = ""
+                    />
+                  </> 
+            }
           </div>
       </header>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/sobre" element={<About />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/historico" element={<History />} />
+          <Route path="/buscas" element={<History />} />
         </Routes>
       <Footer />
     </div>

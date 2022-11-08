@@ -1,11 +1,18 @@
 .home__button {
+    width: 100px;
+    height: 100%;
+    margin-left: 0;
+    padding: 10px 20px;
     border:none;
     display: flex;
     align-items: center;
     justify-content: center;
+    column-gap: 5px;
     background-color: var(--light-blue);
     border-radius: 25px;
     color: var(--text-white-first);
+    font-size: 10px;
+    line-height: 7px;
     letter-spacing: 2.55px;
     text-transform: uppercase;
     transition: 0.3s;
@@ -16,7 +23,7 @@
 }
 
 .contrast {
-    background: #72EFDB 0% 0% no-repeat padding-box;
+    background: #72EFDB;
     color: #0B1741;
 }
 
@@ -30,30 +37,21 @@
 
 @media (min-width:280px) {
     .home__button{
-        margin-right: 16px;
-        width: 106px;
         height: 30px;
         font: normal normal bold 9px/7px Rubik;      
     }
 
     .home__icon {
-        margin-right: 6px;
         height: 8px;
-        margin-bottom: 1px;
     }
   }
   
   @media (min-width:768px) {
     .home__button{
-        margin-right: 64px;
-        width: 136px;
-        height: 39px;
         font: normal normal bold 14px/10px Rubik;
     }
 
     .home__icon {
-        margin-right: 8px;
-        margin-bottom: 2px;
         height: 12px;        
     }
 
@@ -62,8 +60,9 @@
   @media (min-width:1112px) {
     .home__button{
         width: 170px;
-        height: 49px;
         font: normal normal bold 17px/13px Rubik;
+        column-gap: 10px;
+        padding: 25px 35px;
     }
 
     .home__icon {
