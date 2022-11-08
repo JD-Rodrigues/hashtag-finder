@@ -17,14 +17,14 @@
 
 @media (min-width:1112px) {
   .first__class {
-    min-height: auto;
-    padding: 80px 80px 0 80px;
+    min-height: 100vh;
+    padding: 80px 80px 40px 80px;
   }
 }
 
 @media (min-width:1920px) {
   .first__class {
     min-height: auto;
-    padding: 140px 140px 0 140px;
+    padding: 140px 140px 20px 140px;
   }
 }

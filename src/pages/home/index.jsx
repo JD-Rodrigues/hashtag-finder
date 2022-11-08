@@ -47,8 +47,8 @@ export const Home = () => {
           </span>
         </p>  
         <div className={styles.result__tabs}>
-          <div className={resultTab === 'Tweets' ? styles.active__tab : styles.tab__tweets}>Tweets</div>
-          <div className={resultTab === 'Images' ? styles.active__tab : styles.tab__images}>Imagens</div>
+          <div onClick={()=> setResultTab('tweets')} className={resultTab === 'tweets' ? styles.active__tab : styles.tab__tweets}>Tweets</div>
+          <div onClick={()=> setResultTab('images')}  className={resultTab === 'images' ? styles.active__tab : styles.tab__images}>Imagens</div>
         </div>
         { 
           

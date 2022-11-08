@@ -137,6 +137,11 @@
     height: 100%;
   }
 
+  .tab__tweets, .tab__images {
+    font-size: 14px;
+    padding-bottom: 20px;
+  }
+
   @media (min-width:899px) {
     .result__wrapper {
       width: 100%;
@@ -145,6 +150,16 @@
       justify-content: center;
       gap: 20px;
     }
+
+    .result__tabs {
+      display: none;
+    }
+
+    .result__subtitle {
+      display: block;
+      font-size: 20px;
+    }
+  
   }
 }
 
@@ -187,14 +202,6 @@
     width: 20px;
   }
 
-  .result__subtitle {
-    display: block;
-    font-size: 20px;
-  }
-  .result__tabs {
-    display: none;
-  }
-
   .result__wrapper {
     width: 100%;
     height: auto;
@@ -205,6 +212,7 @@
 
   .search__result {
     padding: 80px;
+    row-gap: 60px;
   }
 
   .result__images {
@@ -266,11 +274,13 @@
   }
 
   .title {
+    width: 800px;
     font-size: 80px;
     line-height: 90px;
   }
 
   .description {
+    width: 610px;
     font-size: 30px;
     line-height: 40px;
   }
