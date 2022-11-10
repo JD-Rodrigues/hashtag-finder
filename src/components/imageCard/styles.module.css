@@ -29,11 +29,26 @@
   }
 }
 
+@media (min-width: 1589px) {
+  .card {
+    width: 290px;
+    height: 290px;
+  }
+}
+
 @media (min-width: 1920px) {
   .card {
     width: 290px;
     height: 290px;
   }
 }
+
+@media (min-width: 2200px) {
+  .card {
+    width: 20vw;
+    height: 20vw;
+  }
+}
+
 
 
