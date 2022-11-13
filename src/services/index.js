@@ -37,7 +37,7 @@ export const recordSearches = async (hashtag) => {
 }
 
 
-export const teste = ()=> {
+export const listMembers = ()=> {
   return new Promise((resolve, reject) => {
     let time = []
     base('Equipe').select({
@@ -68,7 +68,7 @@ export const teste = ()=> {
 }
 
 
-export const time = await teste()
+export const time = await listMembers()
 
 
 
