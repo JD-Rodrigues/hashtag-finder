@@ -7,7 +7,8 @@ import infoIcon from '/images/icons/icon-info-circle.svg'
 import git from '/public/images/icons/icon-github.svg'
 import email from '/public/images/icons/icon-envelope.svg'
 import linkedin from '/public/images/icons/icon-awesome-linkedin.svg'
-import { teste } from '../../services'
+import { teste, time } from '../../services'
+
 
 
 export const About = () => {
@@ -49,7 +50,7 @@ export const About = () => {
               
               <div className={styles.cards} >
                 <div id='card__pic' className={styles.card__pic01} ></div>
-                <h2 className={styles.card__name} >Bruno</h2>
+                <h2 className={styles.card__name} >{time[1].Nome}</h2>
                 <p className={styles.card__text} >
                 Dev front-end | Html | Css | JavaScript | React | TypeScript | NextJs | Designer | UX / UI |
                 </p>

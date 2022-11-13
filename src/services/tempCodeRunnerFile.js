@@ -1,1 +1,1 @@
-teste()
+og(time.then(data=>data))

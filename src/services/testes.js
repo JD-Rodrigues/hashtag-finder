@@ -1,4 +1,5 @@
-import { outraFuncao } from "./index.js";
+import { time } from "./index.js";
 
 
-console.log(outraFuncao())
+// const fields = teste().then(data)
+
