@@ -1,6 +1,7 @@
 const date = new Date()
 const today = date.getTime()
 
+// Valida o campo de buscas
 export const searchValidation = (search) => {
   if(search.length < 1)  {
     alert('Digite uma hashtag!')
@@ -14,6 +15,8 @@ export const searchValidation = (search) => {
   return true
 }
 
+
+//Registra as buscas em uma tabela do Airtable
 import Airtable from "airtable"
 var base = new Airtable({apiKey: 'keyz8BAZKCTGY5dB1'}).base('app6wQWfM6eJngkD4');
 
@@ -32,6 +35,18 @@ export const recordSearches = async (hashtag) => {
     });
   });
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
