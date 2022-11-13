@@ -12,6 +12,7 @@ import logo from '/images/icons/logo.svg'
 import git from '/public/images/icons/icon-github.svg'
 import email from '/public/images/icons/icon-envelope.svg'
 import linkedin from '/public/images/icons/icon-awesome-linkedin.svg'
+import { teste, time } from '../../services'
 
 
 const aboutBlock = () => {
@@ -54,7 +55,7 @@ export const About = () => {
               
               <div className={styles.cards} >
                 <div id='card__pic' className={styles.card__pic01} ></div>
-                <h2 className={styles.card__name} >Bruno Ferreira</h2>
+                <h2 className={styles.card__name} >{time[1].Nome}</h2>
                 <p className={styles.card__text} >
                 Dev front-end | Html | Css | JavaScript | React | TypeScript | NextJs | Designer | UX / UI |
                 </p>

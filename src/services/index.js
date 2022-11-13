@@ -1,6 +1,7 @@
 const date = new Date()
 const today = date.getTime()
 
+// Valida o campo de buscas
 export const searchValidation = (search) => {
   if(search.length < 1)  {
     alert('Digite uma hashtag!')
@@ -14,6 +15,8 @@ export const searchValidation = (search) => {
   return true
 }
 
+
+//Registra as buscas em uma tabela do Airtable
 import Airtable from "airtable"
 var base = new Airtable({apiKey: 'keyz8BAZKCTGY5dB1'}).base('app6wQWfM6eJngkD4');
 
@@ -33,13 +36,46 @@ export const recordSearches = async (hashtag) => {
   });
 }
 
-function aboutTextBlock()  {
-  base('Projeto').find('recQKaT4FDiz8edJM', 
-  function(err, record) {
-    if (err) { console.error(err); return; }
-    console.log('Retrieved', record.fields.Sobre);
-    return('Retrieved', record.fields.Sobre);
-})
+
+export const listMembers = ()=> {
+  return new Promise((resolve, reject) => {
+    let time = []
+    base('Equipe').select({
+      // Selecting the first 3 records in Grid view:
+      maxRecords: 3,
+      view: "Grid view"
+  }).eachPage(function page(records, fetchNextPage) {
+      // This function (`page`) will get called for each page of records.
+  
+      records.forEach(function(record) {
+          time.push(record.fields);
+      });
+  
+      // To fetch the next page of records, call `fetchNextPage`.
+      // If there are more records, `page` will get called again.
+      // If there are no more records, `done` will get called.
+      fetchNextPage();
+  
+  }, function done(err) {
+      if (err) {
+         console.error(err); 
+         return; 
+      } else {
+        resolve(time)
+      }
+  });
+  })
 }
-export default aboutTextBlock()
+
+
+export const time = await listMembers()
+
+
+
+
+
+
+
+
+
 
