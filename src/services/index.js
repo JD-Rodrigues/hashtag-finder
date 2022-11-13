@@ -41,19 +41,12 @@ export const listMembers = ()=> {
   return new Promise((resolve, reject) => {
     let time = []
     base('Equipe').select({
-      // Selecting the first 3 records in Grid view:
       maxRecords: 3,
       view: "Grid view"
-  }).eachPage(function page(records, fetchNextPage) {
-      // This function (`page`) will get called for each page of records.
-  
+  }).eachPage(function page(records, fetchNextPage) {  
       records.forEach(function(record) {
           time.push(record.fields);
       });
-  
-      // To fetch the next page of records, call `fetchNextPage`.
-      // If there are more records, `page` will get called again.
-      // If there are no more records, `done` will get called.
       fetchNextPage();
   
   }, function done(err) {

@@ -7,7 +7,7 @@ import infoIcon from '/images/icons/icon-info-circle.svg'
 import git from '/public/images/icons/icon-github.svg'
 import email from '/public/images/icons/icon-envelope.svg'
 import linkedin from '/public/images/icons/icon-awesome-linkedin.svg'
-import { teste, time } from '../../services'
+import { time } from '../../services'
 
 
 
