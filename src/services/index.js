@@ -42,8 +42,8 @@ export const listMembers = ()=> {
   return new Promise((resolve, reject) => {
     let time = []
     base('Equipe').select({
-      maxRecords: 3,
-      view: "Grid view"
+      maxRecords: 4,
+      view: "Grid s8"
   }).eachPage(function page(records, fetchNextPage) {  
       records.forEach(function(record) {
           time.push(record.fields);
