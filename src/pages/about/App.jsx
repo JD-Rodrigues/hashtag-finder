@@ -29,18 +29,26 @@ function App() {
     </>)
 }
 
-export default App;
+//export default App;
+
+
+// ------------------------------------------------
+
+
+function aboutTextBlock()  {
+  base('Projeto').find('recQKaT4FDiz8edJM', 
+  function(err, record) {
+    if (err) { console.error(err); return; }
+    console.log('Retrieved', record.fields.Sobre);
+    return('Retrieved', record.fields.Sobre);
+})
+}
+export default aboutTextBlock()
 
 
 
 
-
-
-
-
-
-
-
+//---------------------------------------------------
 
 
 
