@@ -15,11 +15,6 @@ export const About = () => {
   
   return(
     <div>
-      
-
-
-
-
       <div className={styles.box__fist__section}>
         <div className={styles.fist__section} >
           <div className={styles.text__box} >
@@ -46,7 +41,7 @@ export const About = () => {
         <div className={styles.cards__container} >  
           <h1 className={styles.cards__tittle} > Quem somos </h1>  
 
-            <div className={styles.cards__list} > 
+            <div className={styles.cards__list}> 
               
               <div className={styles.cards} >
                 <div id='card__pic' className={styles.card__pic01} ></div>
@@ -59,10 +54,7 @@ export const About = () => {
                   <img src={email} className={styles.icons__mail} ></img>
                   <img src={linkedin} className={styles.icons__linkedin} ></img>
                 </div>
-              </div>  
-            
-
-            
+              </div>             
               <div className={styles.cards} >
                 <div className={styles.card__pic02} ></div>
                 <h2 className={styles.card__name} > Eliel Silva </h2>
@@ -75,9 +67,6 @@ export const About = () => {
                   <img src={linkedin} className={styles.icons__linkedin} ></img>
                 </div>
               </div>  
-            
-
-            
               <div className={styles.cards} >
                 <div className={styles.card__pic03} ></div>
                 <h2 className={styles.card__name} >Domingos Rodrigues</h2>
@@ -90,9 +79,6 @@ export const About = () => {
                   <img src={linkedin} className={styles.icons__linkedin} ></img>
                 </div>
               </div>  
-            
-          
-            
               <div className={styles.cards} >
                 <div className={styles.card__pic04} ></div>
                 <h2 className={styles.card__name} >Julio Gabriel </h2>

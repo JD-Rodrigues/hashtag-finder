@@ -155,6 +155,16 @@
       display: none;
     }
 
+    .result__images {
+      justify-content: flex-start;
+      width: 50%;
+      gap: 40px;
+    }
+
+    .result__tweets {
+      width: 50%;
+    }
+
     .result__subtitle {
       display: block;
       font-size: 20px;
@@ -216,14 +226,10 @@
   }
 
   .result__images {
-    justify-content: center;
     width: 50%;
     gap: 40px;
   }
-
-  .result__tweets {
-    width: 50%;
-  }
+  
 }
 
 @media (min-width:1500px) {
@@ -260,12 +266,6 @@
   .search__result {
     padding: 100px;
   }
-
-  .result__images {
-    justify-content: center;
-    gap: 40px;
-  }
-
 }
 
 @media (min-width:1920px) {
