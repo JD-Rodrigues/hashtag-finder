@@ -36,6 +36,7 @@ export const recordSearches = async (hashtag) => {
   });
 }
 
+// Retorna um array de objetos contendo os membros da equipe.
 
 export const listMembers = ()=> {
   return new Promise((resolve, reject) => {
@@ -59,6 +60,7 @@ export const listMembers = ()=> {
   });
   })
 }
+
 
 
 export const time = await listMembers()
