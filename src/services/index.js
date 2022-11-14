@@ -36,6 +36,7 @@ export const recordSearches = async (hashtag) => {
   });
 }
 
+// Retorna um array de objetos contendo os membros da equipe.
 
 export const listMembers = ()=> {
   return new Promise((resolve, reject) => {
@@ -51,10 +52,6 @@ export const listMembers = ()=> {
           time.push(record.fields);
           console.log(record.fields)
       });
-  
-      // To fetch the next page of records, call `fetchNextPage`.
-      // If there are more records, `page` will get called again.
-      // If there are no more records, `done` will get called.
       fetchNextPage();
   
   }, function done(err) {
@@ -67,6 +64,7 @@ export const listMembers = ()=> {
   });
   })
 }
+
 
 export const time = await listMembers()
 
