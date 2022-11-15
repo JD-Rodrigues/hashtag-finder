@@ -11,14 +11,27 @@ import { History } from "./pages/history"
 import { Home } from "./pages/home"
 import { Login } from "./pages/login"
 import { MenuButton } from "./components/menuButton";
+import { useEffect, useState } from "react";
 
 
 function App() {
+  const [menuTransparence, setMenuTransparence] = useState(false)
   const location = useLocation()
+  const checkScroll = () => {
+    if (window.scrollY >=100) {
+      setMenuTransparence(true)      
+    } else {
+      setMenuTransparence(false)      
+    }    
+  }
+  useEffect(()=> {
+    window.addEventListener('scroll', () => checkScroll()) 
+    
+  },[])
 
   return (
     <div className="App">
-      <header className={styles.header}>
+      <header className={menuTransparence ? styles.header__fixed : styles.header}>
           <div className={styles.title}>
             <img src={logo} alt='logo' className={styles.logo} />
           </div>

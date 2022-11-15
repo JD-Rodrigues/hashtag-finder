@@ -15,7 +15,7 @@ export const Home = () => {
   const handleSearch = (e) => {
     setSearch(e.target.value)    
   }
-
+  
   const submitSearch = (e) => {
     e.preventDefault()
     if(searchValidation(search.replace('#',''))){
@@ -37,6 +37,7 @@ export const Home = () => {
     return () => {
       window.removeEventListener('resize', watchResize)
     }
+    
   },[])
 
   
