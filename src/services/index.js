@@ -42,8 +42,8 @@ export const listMembers = ()=> {
   return new Promise((resolve, reject) => {
     let time = []
     base('Equipe').select({
-      maxRecords: 3,
-      view: "Grid view"
+      maxRecords: 4,
+      view: "Grid s8"
   }).eachPage(function page(records, fetchNextPage) {  
       records.forEach(function(record) {
           time.push(record.fields);
@@ -58,16 +58,40 @@ export const listMembers = ()=> {
         resolve(time)
       }
   });
+  console.log(time)
   })
 }
-
-
 
 export const time = await listMembers()
 
 
 
+export const bText = ()=> {
+  return new Promise((resolve, reject) => {
+    let time2 = []
+    base('Projeto').select({
+      maxRecords: 1,
+      view: "Grid s8"
+  }).eachPage(function page(records, fetchNextPage) {  
+      records.forEach(function(record) {
+          time2.push(record.fields);
+      });
+      fetchNextPage();
+  
+  }, function done(err) {
+      if (err) {
+         console.error(err); 
+         return; 
+      } else {
+        resolve(time2)
+      }
+  });
+  console.log(time2)
+  })
+  
+}
 
+export const time2 = await bText()
 
 
 

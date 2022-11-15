@@ -1,6 +1,6 @@
 * {
     margin: 0;
-    padding: 0;
+    padding: 80px 0 0 0;
     
 }
 
@@ -185,16 +185,19 @@ button {
 }
 
 .icons__git {
+    cursor: pointer;
     width: 30px;
     height: 30px;
 }
 
 .icons__mail {
+    cursor: pointer;
     width: 30px;
     height: 30px;
 }
 
 .icons__linkedin {
+    cursor: pointer;
     width: 30px;
     height: 30px;
 }
