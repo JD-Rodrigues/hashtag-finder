@@ -88,18 +88,26 @@ export const Home = () => {
 
         {
          resultTab === 'images' &&
-          <div className={styles.result__images}>
-              <ImageCard />
-              <ImageCard />
-              <ImageCard />
-              <ImageCard />
-              <ImageCard />
-              <ImageCard />
-              <ImageCard />
-              <ImageCard />
-              <ImageCard />
-              <ImageCard />
-          </div>
+          <>
+            <div className={styles.image__slide__panel}>
+              <div className={styles.image__slide__button}></div>
+              <div className={styles.image__slide__button}></div>
+            </div>
+            <div className={styles.result__images}>
+                <ImageCard />
+                <ImageCard />
+                <ImageCard />
+                <ImageCard />
+                <ImageCard />
+                <ImageCard />
+                <ImageCard />
+                <ImageCard />
+                <ImageCard />
+                <ImageCard />
+            </div>
+          </>
+            
+          
         }
           
         {
