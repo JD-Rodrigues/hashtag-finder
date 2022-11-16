@@ -11,11 +11,13 @@ import { recordSearches, searchValidation } from "../../services"
 export const Home = () => {
   const [resultTab, setResultTab] = useState('tweets')
   const [search, setSearch] = useState('')
-
+  const [galeryMargin, setGaleryMargin] = useState(0)
+  
   const handleSearch = (e) => {
     setSearch(e.target.value)    
   }
-  
+
+  window.addEventListener('scroll', console.log(galeryMargin))
   const submitSearch = (e) => {
     e.preventDefault()
     if(searchValidation(search.replace('#',''))){
@@ -34,11 +36,16 @@ export const Home = () => {
   useEffect(()=>{
     watchResize()
     window.addEventListener('resize', watchResize)
+
     return () => {
       window.removeEventListener('resize', watchResize)
     }
     
   },[])
+
+  useEffect(()=> {
+
+  })
 
   
   return(
@@ -88,12 +95,12 @@ export const Home = () => {
 
         {
          resultTab === 'images' &&
-          <>
+          <div className={styles.slide__image__wrapper}>
             <div className={styles.image__slide__panel}>
-              <div className={styles.image__slide__button}></div>
-              <div className={styles.image__slide__button}></div>
+              <div onClick={()=>setGaleryMargin(galeryMargin < 0 ? galeryMargin + 51 : 0)} className={`${styles.slide__button} ${styles.slide__button__left}`}></div>
+              <div onClick={()=>setGaleryMargin(galeryMargin > -153 ? galeryMargin - 51 : -153)} className={`${styles.slide__button} ${styles.slide__button__right}`}></div>
             </div>
-            <div className={styles.result__images}>
+            <div className={styles.result__images} style={{left: `${galeryMargin}%`}}>
                 <ImageCard />
                 <ImageCard />
                 <ImageCard />
@@ -105,7 +112,7 @@ export const Home = () => {
                 <ImageCard />
                 <ImageCard />
             </div>
-          </>
+          </div>
             
           
         }
@@ -113,17 +120,23 @@ export const Home = () => {
         {
           resultTab === 'both' &&
           <div className={styles.result__wrapper}>
-            <div className={styles.result__images}>
-              <ImageCard />
-              <ImageCard />
-              <ImageCard />
-              <ImageCard />
-              <ImageCard />
-              <ImageCard />
-              <ImageCard />
-              <ImageCard />
-              <ImageCard />
-              <ImageCard />
+            <div className={styles.slide__image__wrapper}>
+              <div className={styles.image__slide__panel}>
+                <div onClick={()=>setGaleryMargin(galeryMargin < 0 ? galeryMargin + 51 : 0)} className={`${styles.slide__button} ${styles.slide__button__left}`}></div>
+                <div onClick={()=>setGaleryMargin(galeryMargin > -153 ? galeryMargin - 51 : -153)} className={`${styles.slide__button} ${styles.slide__button__right}`}></div>
+              </div>
+              <div className={styles.result__images} style={{left: `${galeryMargin}%`}}>
+                <ImageCard />
+                <ImageCard />
+                <ImageCard />
+                <ImageCard />
+                <ImageCard />
+                <ImageCard />
+                <ImageCard />
+                <ImageCard />
+                <ImageCard />
+                <ImageCard />
+              </div>
             </div>
             <div className={styles.result__tweets}>
               <TweetCard />
