@@ -23,7 +23,11 @@ var base = new Airtable({apiKey: 'keyz8BAZKCTGY5dB1'}).base('app6wQWfM6eJngkD4')
 export const recordSearches = async (hashtag) => {
   base('Buscas').create([
     {
-      "fields": {"Squad":"08-22","Hashtag":`${hashtag}`,"Data":today}
+      "fields": {
+        "Squad":"08-22",
+        "Hashtag":`${hashtag}`,
+        "Data":today
+      }
     }
   ], function(err, records) {
     if (err) {
@@ -42,8 +46,10 @@ export const listMembers = ()=> {
   return new Promise((resolve, reject) => {
     let time = []
     base('Equipe').select({
+      filterByFormula: "({Squad} = '08-22')",
       maxRecords: 4,
       view: "Grid s8"
+      
   }).eachPage(function page(records, fetchNextPage) {  
       records.forEach(function(record) {
           time.push(record.fields);
@@ -63,38 +69,3 @@ export const listMembers = ()=> {
 }
 
 export const time = await listMembers()
-
-
-
-export const bText = ()=> {
-  return new Promise((resolve, reject) => {
-    let time2 = []
-    base('Projeto').select({
-      maxRecords: 1,
-      view: "Grid s8"
-  }).eachPage(function page(records, fetchNextPage) {  
-      records.forEach(function(record) {
-          time2.push(record.fields);
-      });
-      fetchNextPage();
-  
-  }, function done(err) {
-      if (err) {
-         console.error(err); 
-         return; 
-      } else {
-        resolve(time2)
-      }
-  });
-  console.log(time2)
-  })
-  
-}
-
-export const time2 = await bText()
-
-
-
-
-
-
