@@ -96,6 +96,7 @@ function App() {
                       text = "SAIR" 
                       icon = {logoffIcon} 
                       color = ""
+                      link = "/login"
                     />
                   </> 
             }

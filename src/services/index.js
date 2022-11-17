@@ -69,3 +69,38 @@ export const listMembers = ()=> {
 }
 
 export const time = await listMembers()
+
+
+// Validação login
+
+export const getLogin = () => {
+  return new Promise ((resolve, reject) => {
+    let logins = []
+
+    base('Login').select({
+      maxRecords: 3,
+      view: "Squad 8"
+    }).eachPage(function page(records, fetchNextPage) {
+      records.forEach(function(record) {
+          logins.push(record.fields);
+      });
+      fetchNextPage();
+    
+    }, function done(err) {
+      if (err) { console.error(err); return; }
+      else {
+        resolve(logins)
+      }
+    });
+  })
+}
+
+export const validateLogin = async (email, senha) => {
+  const login = await getLogin() 
+  const user = login.filter(user => user.Email === email && user.Senha === senha);
+  if (user.length > 0) {
+    return true;
+  } else {
+    return false;
+  }
+}
