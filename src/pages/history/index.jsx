@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import  HeadSeo from "../../components/HeadSeo/HeadSeo";
+import HeadSeo from "../../components/HeadSeo/HeadSeo";
 import { ListHastag } from "../../components/listHastag/ListHastag";
 
 // os estilos são importados pela styles
@@ -18,7 +18,6 @@ export const History = () => {
   const [canObserver, setCanbserver] = useState(false);
   //alerta o fim da pagina
   const [listEnd, setListEnd] = useState(false);
-  //animação de carregamento
 
   function convertForHour(dataRaw) {
     //converte para hora e minuto
@@ -38,8 +37,6 @@ export const History = () => {
     }).format(dataRaw);
     return newDate;
   }
-  //a url da api utilizada
-  const url = `https://api.airtable.com/v0/app6wQWfM6eJngkD4/Buscas?view=Grid+view&filterByFormula=Squad+%3D+%2708-22%27+&fields%5B%5D=fldJeVwUsVuykwDEF&fields%5B%5D=fldHsOM8iwd6I0efy&fields%5B%5D=fldtviHDOVNS7wZge&pageSize=${currentPage}&maxRecords=100&&sort%5B0%5D%5Bfield%5D=Data&sort%5B0%5D%5Bdirection%5D=desc`;
 
   useEffect(() => {
     //primeira requesição quando entra no site
@@ -47,7 +44,15 @@ export const History = () => {
       setCanbserver(true);
       fetch(
         //fazendo uma requesição na api da airtable
-        `${url}`,
+        "https://api.airtable.com/v0/app6wQWfM6eJngkD4/Buscas?filterByFormula=" +
+          encodeURI("({Squad}='08-22')") +
+          "&filterByFormula" +
+          encodeURI(" NOT({Squad} = '') ") +
+          `&pageSize=${currentPage}&&sort` +
+          encodeURI("[0][field]=Data") +
+          "&sort" +
+          encodeURI("[0][direction]=desc"),
+
         {
           headers: {
             Authorization: `Bearer keyz8BAZKCTGY5dB1`,
@@ -95,7 +100,6 @@ export const History = () => {
     }
   }, [offset]);
 
-  
   return (
     <>
       <HeadSeo
@@ -118,7 +122,7 @@ export const History = () => {
           </div>
           <div className={styles.container__list}>
             {/* renderiza de forma condicional se tiver hastag ou não */}
-            <ul className={"map"}>
+            <ul id="map" className={"map"}>
               {hashtagData.length >= 1 ? (
                 hashtagData.map((item, index) => {
                   return (
