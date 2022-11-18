@@ -1,15 +1,21 @@
-import React from 'react'
-import styles from "./styles.module.css"
+import React from "react";
+
+// os estilos são importados pela styles
+import styles from "./styles.module.css";
 
 export const ListHastag = (props) => {
   return (
-    <div className={styles.container} >
-      <span>{props.hashtag}</span>
+    <div data-item className={`${styles.main} `}>
+      <div className={styles.main__container}>
+        <span title={props.hashtag} className={styles.container__hashtag}>
+          {props.hashtag}
+        </span>
 
-      <div>
-        <span>{props.date}</span>
-        <span>{props.hour}</span>
+        <div>
+          <span>{props.date}</span>
+          <span>{props.hour}</span>
+        </div>
       </div>
     </div>
-  )
-}
+  );
+};
