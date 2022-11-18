@@ -100,8 +100,9 @@ export const time2 = await bText()
 
 
 // Recebe uma hastag e retorna os últimos tweets marcados com ela.
-export const getLastTweets = async () => {
-  const endpointUrl = "https://cors.eu.org/https://api.twitter.com/2/tweets/search/recent?query=ball&max_results=100&tweet.fields=author_id"; 
+export const getLastTweets = async (hashtag) => {
+  const encodedHashtag = encodeURI(hashtag)
+  const endpointUrl = `https://cors.eu.org/https://api.twitter.com/2/tweets/search/recent?query=-has%3Amedia%20${encodedHashtag}&max_results=10&tweet.fields=author_id`; 
   
 
   const res = await fetch(endpointUrl, {
@@ -109,24 +110,9 @@ export const getLastTweets = async () => {
     headers: {
       "User-Agent": "v2RecentSearchJS",
       "authorization": `Bearer AAAAAAAAAAAAAAAAAAAAAFlKHgEAAAAApBW4nRyRkiogluzAbXlS4KuHlMU%3DFcR7r8N19LRnMHLVmYlFsod6Be6zUvZD2rxATotl6mLPAh2UEX`,
-      "Content-Type": "application/json utf-8",
+      "Content-Type": "application/json",
   }
   })
-
-
-  // TENTATIVA COM AXIOS
-  // const res = await axios.get(endpointUrl, {
-  //   params: {
-  //     'query': 'has:hashtags money',
-  //     'max_results':100,
-  //     'tweet.fields': 'author_id',
-  //     'media.fields': 'url'
-  //   },
-  //   headers:{
-  //     "User-Agent": "v2RecentSearchJS",
-  //     "authorization": `Bearer AAAAAAAAAAAAAAAAAAAAAFlKHgEAAAAApBW4nRyRkiogluzAbXlS4KuHlMU%3DFcR7r8N19LRnMHLVmYlFsod6Be6zUvZD2rxATotl6mLPAh2UEX`,
-  // }
-  // })
 
   if (res.body) {
       return res.json();
@@ -135,23 +121,54 @@ export const getLastTweets = async () => {
   }
 }
 
-getLastTweets().then(data=>console.log(data))
+// Recebe uma hastag e retorna os últimos tweets marcados com ela e contendo imagens
+export const getLastTweetsWithImages = async (hashtag) => {
+  const encodedHashtag = encodeURI(hashtag)
+  const endpointUrl = `https://cors.eu.org/https://api.twitter.com/2/tweets/search/recent?query=has%3Amedia%20${encodedHashtag}&max_results=100&tweet.fields=author_id`; 
+  
 
-// (async () => {
+  const res = await fetch(endpointUrl, {
+    method: 'GET',
+    headers: {
+      "User-Agent": "v2RecentSearchJS",
+      "authorization": `Bearer AAAAAAAAAAAAAAAAAAAAAFlKHgEAAAAApBW4nRyRkiogluzAbXlS4KuHlMU%3DFcR7r8N19LRnMHLVmYlFsod6Be6zUvZD2rxATotl6mLPAh2UEX`,
+      "Content-Type": "application/json",
+  }
+  })
 
-//   try {
-//       // Make request
-//       const response = await getLastTweets();
-//       console.dir(response, {
-//           depth: null
-//       });
+  if (res.body) {
+      return res.json();
+  } else {
+      throw new Error('Unsuccessful request');
+  }
+}
 
-//   } catch (e) {
-//       console.log(e);
-//       process.exit(-1);
-//   }
-//   process.exit();
-// })();
+
+//Recebe o id de um tweet e retorna informações sobre ele. A URL pode ser obtida acessando o retorno através de "data.data[0].entities.urls[0].url" e a imagem em "data.includes.media[0].url".
+const getTweetInfo = async (id) => {
+  const endpointUrl = `https://api.twitter.com/2/tweets?ids=${id}&tweet.fields=attachments,entities,geo,id,author_id,text&expansions=attachments.media_keys&media.fields=url`; 
+  
+
+  const res = await fetch(endpointUrl, {
+    method: 'GET',
+    headers: {
+      "User-Agent": "v2RecentSearchJS",
+      "authorization": `Bearer AAAAAAAAAAAAAAAAAAAAAFlKHgEAAAAApBW4nRyRkiogluzAbXlS4KuHlMU%3DFcR7r8N19LRnMHLVmYlFsod6Be6zUvZD2rxATotl6mLPAh2UEX`,
+      "Content-Type": "application/json",
+  }
+  })
+
+  if (res.body) {
+      return res.json();
+  } else {
+      throw new Error('Unsuccessful request');
+  }
+}
+
+// getLastTweets('briga').then(data=>console.log(data))
+getTweetInfo('1593446648604155909').then(data=>console.log(data.data[0]))
+
+
 
 
 
