@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { HeadTitle } from "../../components/HeadTitle/HeadTitle";
+import  HeadSeo from "../../components/HeadSeo/HeadSeo";
 import { ListHastag } from "../../components/listHastag/ListHastag";
 
 // os estilos são importados pela styles
@@ -39,7 +39,7 @@ export const History = () => {
     return newDate;
   }
   //a url da api utilizada
-  const url = `https://api.airtable.com/v0/app6wQWfM6eJngkD4/Buscas?view=Grid+view&filterByFormula=Squad+%3D+%2708-22%27+&fields%5B%5D=fldJeVwUsVuykwDEF&fields%5B%5D=fldHsOM8iwd6I0efy&fields%5B%5D=fldtviHDOVNS7wZge&pageSize=${currentPage}&maxRecords=100&&sort%5B0%5D%5Bfield%5D=Data&sort%5B0%5D%5Bdirection%5D=asc`;
+  const url = `https://api.airtable.com/v0/app6wQWfM6eJngkD4/Buscas?view=Grid+view&filterByFormula=Squad+%3D+%2708-22%27+&fields%5B%5D=fldJeVwUsVuykwDEF&fields%5B%5D=fldHsOM8iwd6I0efy&fields%5B%5D=fldtviHDOVNS7wZge&pageSize=${currentPage}&maxRecords=100&&sort%5B0%5D%5Bfield%5D=Data&sort%5B0%5D%5Bdirection%5D=desc`;
 
   useEffect(() => {
     //primeira requesição quando entra no site
@@ -95,9 +95,10 @@ export const History = () => {
     }
   }, [offset]);
 
+  
   return (
     <>
-      <HeadTitle
+      <HeadSeo
         title={"Historico"}
         description={"Suas buscas recentes aparecerão aqui"}
       />
