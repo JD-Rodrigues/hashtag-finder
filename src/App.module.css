@@ -1,5 +1,6 @@
 .header {
   position: fixed;
+  z-index: 999;
   width: 100%;
   padding: 40px 15px;
   font-weight: 400;
@@ -15,6 +16,7 @@
 
 .header__fixed {
   position: fixed;
+  z-index: 1;
   width: 100%;
   padding: 40px 15px;
   font-weight: 400;
