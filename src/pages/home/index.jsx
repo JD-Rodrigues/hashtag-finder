@@ -4,11 +4,10 @@ import searchIcon from "../../../public/images/icons/icon-search.svg"
 import { useEffect, useState } from "react"
 import { TweetCard } from "../../components/tweetCard"
 import { ImageCard } from "../../components/imageCard"
-import { recordSearches, searchValidation } from "../../services"
-
-
+import { getLastTweets, recordSearches, searchValidation } from "../../services/index.js"
 
 export const Home = () => {
+
   const [resultTab, setResultTab] = useState('tweets')
   const [search, setSearch] = useState('')
   const [galeryMargin, setGaleryMargin] = useState(0)
@@ -16,6 +15,9 @@ export const Home = () => {
   const handleSearch = (e) => {
     setSearch(e.target.value)    
   }
+
+ getLastTweets().then(console.log)
+  
 
   window.addEventListener('scroll', console.log(galeryMargin))
   const submitSearch = (e) => {
