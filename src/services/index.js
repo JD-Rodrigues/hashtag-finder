@@ -156,7 +156,7 @@ export const fetchLastTweetsImages = async (hashtag) => {
 // Recebe o id de um tweet e retorna informações sobre ele. 
 // Obs.: A URL do tweet pode ser obtida acessando o retorno através de "data.data[0].entities.urls[0].url" e a url da imagem em "data.includes.media[0].url".
 export const getTweetInfo = async (id) => {
-  const endpointUrl = `https://api.twitter.com/2/tweets?ids=${id}&tweet.fields=attachments,entities,geo,id,author_id,text&expansions=attachments.media_keys&media.fields=url`; 
+  const endpointUrl = `https://cors.eu.org/https://api.twitter.com/2/tweets?ids=${id}&tweet.fields=attachments,entities,geo,id,author_id,text&expansions=attachments.media_keys&media.fields=url`; 
   
 
   const res = await fetch(endpointUrl, {
@@ -179,7 +179,7 @@ export const getTweetInfo = async (id) => {
 
 // Recebe um id de usuário (author_id) e retorna informações sobre o usuário.
 export const getUserInfo = async (id) => {
-  const endpointUrl = `https://api.twitter.com/2/users?ids=${id}&user.fields=created_at,description,entities,id,location,name,profile_image_url,url,username`; 
+  const endpointUrl = `https://cors.eu.org/https://api.twitter.com/2/users?ids=${id}&user.fields=created_at,description,entities,id,location,name,profile_image_url,url,username`; 
   
 
   const res = await fetch(endpointUrl, {
