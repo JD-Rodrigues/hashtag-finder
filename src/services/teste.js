@@ -58,3 +58,20 @@
 
 //PEGANDO UM USUÁRIO
 
+const getProducts = async (n)=> {	
+  const data = await fetch('https://dummyjson.com/products')	
+  const datajson = await data.json()	
+  return datajson.products[n].title
+}
+
+const numbers = [1,2,3,4,5,6]
+
+const extractor = async () => {  
+  const names = numbers.map(async(num)=> {
+    const item = await getProducts(num)
+    return item
+  })  
+  return names
+}
+
+extractor().then(console.log)

@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState } from 'react'
+
 import styles from "./about.module.css"
 import ilustration from '/public/images/icons/about-ilustration.svg'
 //import logo from '/images/icons/logo.svg'
@@ -7,13 +8,38 @@ import ilustration from '/public/images/icons/about-ilustration.svg'
 import git from '/public/images/icons/icon-github.svg'
 import email from '/public/images/icons/icon-envelope.svg'
 import linkedin from '/public/images/icons/icon-awesome-linkedin.svg'
-import { time } from '../../services/index.js'
+import { time } from '../../services'
+import { useEffect } from 'react'
+
  
 
 
 
 export const About = () => {
   
+  const [texto, setTexto] = useState("");
+
+  useEffect(() => {
+    fetch(
+      "https://api.airtable.com/v0/app6wQWfM6eJngkD4/Projeto?filterByFormula=" +
+        encodeURI(`({Squad} = '08-22')`),
+      {
+        method: "GET",
+        headers: {
+          Authorization: 'Bearer keyz8BAZKCTGY5dB1',
+        },
+      }
+    )
+      .then((res) => res.json())
+      .then((response) => {
+        setTexto(response.records[0].fields.Sobre);
+      })
+      .catch((erro) => console.log(erro));
+      
+    }, []);
+
+
+
   return(
     <div>
       <div className={styles.box__fist__section}>
@@ -22,7 +48,9 @@ export const About = () => {
             <h1 className={styles.text__title} >Sobre o projeto</h1>
             <p className={styles.text__about} >
             
-              
+              {
+                texto
+              }
 
             </p>
           </div>
@@ -48,8 +76,9 @@ export const About = () => {
                   <a href={time[0].Github} target='_blank' >
                   <img src={git} className={styles.icons__git} ></img>
                   </a>
-                  <a href={time[0].Email} target='_blank' >
+                  <a href={`mailto:${time[0].Email}`} target='_blank' >
                   <img src={email} className={styles.icons__mail} ></img>
+                  
                   </a>
                   <a href={time[0].LinkedIn} target='_blank' >
                   <img src={linkedin} className={styles.icons__linkedin} ></img>
@@ -142,4 +171,14 @@ export const About = () => {
         </div>    
       </div>
 
+
+<!-- <a href={time[0].Email} target='_blank' >
+      
+
+
+
+
       */
+     
+     
+      
