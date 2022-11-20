@@ -10,6 +10,7 @@ import email from '/public/images/icons/icon-envelope.svg'
 import linkedin from '/public/images/icons/icon-awesome-linkedin.svg'
 import { time } from '../../services'
 import { useEffect } from 'react'
+
  
 
 
