@@ -1,0 +1,1 @@
+tweetUrl: tweetInfo.data[0].entities.urls[0].url
