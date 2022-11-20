@@ -1,8 +1,8 @@
 import Airtable from "airtable"
 
-// const token = 'Bearer AAAAAAAAAAAAAAAAAAAAAHP0jQEAAAAA54TVPY6HCRhs24q4dN8j0OQ%2FtXg%3DRiUs0TmxSw99xcNkeGWxoO3xpfV1V1KlvTubUDhqndcGZyHeJT'
+const token = 'Bearer AAAAAAAAAAAAAAAAAAAAAHP0jQEAAAAA54TVPY6HCRhs24q4dN8j0OQ%2FtXg%3DRiUs0TmxSw99xcNkeGWxoO3xpfV1V1KlvTubUDhqndcGZyHeJT'
 
-const token = 'Bearer AAAAAAAAAAAAAAAAAAAAAFlKHgEAAAAApBW4nRyRkiogluzAbXlS4KuHlMU%3DFcR7r8N19LRnMHLVmYlFsod6Be6zUvZD2rxATotl6mLPAh2UEX'
+// const token = 'Bearer AAAAAAAAAAAAAAAAAAAAAFlKHgEAAAAApBW4nRyRkiogluzAbXlS4KuHlMU%3DFcR7r8N19LRnMHLVmYlFsod6Be6zUvZD2rxATotl6mLPAh2UEX'
 const date = new Date()
 const today = date.getTime()
 const base = new Airtable({apiKey: 'keyz8BAZKCTGY5dB1'}).base('app6wQWfM6eJngkD4');
@@ -10,7 +10,8 @@ const base = new Airtable({apiKey: 'keyz8BAZKCTGY5dB1'}).base('app6wQWfM6eJngkD4
 
 // Valida o campo de busca
 export const searchValidation = (search) => {
-  if(search.length < 1)  {
+  if(search.length < 2)  {
+    console.log('validação')
     alert('Digite uma hashtag!')
     return false
   }
@@ -18,6 +19,7 @@ export const searchValidation = (search) => {
     alert('Sua hashtag ultrapasou o limite de 100 caracteres!!')
     return false
   }
+  console.log(search.length)
 
   return true
 }
@@ -109,33 +111,10 @@ export const listMembers = ()=> {
 export const time = await listMembers()
 
 
-// Recebe uma hastag e retorna os últimos tweets marcados com ela.
-export const fetchLastTweets = async (hashtag) => {
-  const encodedHashtag = encodeURI(hashtag)
-  const endpointUrl = `https://cors.eu.org/https://api.twitter.com/2/tweets/search/recent?query=-has%3Amedia%20${encodedHashtag}%20-is%3Aretweet&max_results=10&tweet.fields=author_id`; 
-
-  const res = await fetch(endpointUrl, {
-    method: 'GET',
-    headers: {
-      "User-Agent": "v2RecentSearchJS",
-      "authorization": `${token}`,
-      "Content-Type": "application/json",
-    }
-  })
-
-  if (res.body) {
-      return res.json();
-  } else {
-      throw new Error('Unsuccessful request');
-  }
-
-}
-
-
-// Recebe uma hastag e retorna os últimos tweets marcados com ela e contendo imagens
+// Recebe uma hastag e retorna os últimos tweets marcados com ela e contendo imagens. O array das imagens pode ser obtida acessando res.includes.media.
 export const fetchLastTweetsImages = async (hashtag) => {
   const encodedHashtag = encodeURI(hashtag)
-  const endpointUrl = `https://cors.eu.org/https://api.twitter.com/2/tweets/search/recent?query=has%3Amedia%20${encodedHashtag}%20-is%3Aretweet&max_results=20&tweet.fields=author_id`; 
+  const endpointUrl = `https://cors.eu.org/https://api.twitter.com/2/tweets/search/recent?query=has%3Amedia%20${hashtag}%20-is%3Aretweet&max_results=20&expansions=author_id,attachments.media_keys&user.fields=id,name,username,profile_image_url&media.fields=url`; 
   
   const res = await fetch(endpointUrl, {
     method: 'GET',
@@ -155,102 +134,8 @@ export const fetchLastTweetsImages = async (hashtag) => {
 }
 
 
-// Recebe o id de um tweet e retorna informações sobre ele. 
-// Obs.: A URL do tweet pode ser obtida acessando o retorno através de "data.data[0].entities.urls[0].url" e a url da imagem em "data.includes.media[0].url".
-export const getTweetInfo = async (id) => {
-  const endpointUrl = `https://cors.eu.org/https://api.twitter.com/2/tweets?ids=${id}&tweet.fields=attachments,entities,geo,id,author_id,text&expansions=attachments.media_keys&media.fields=url`; 
-  
 
-  const res = await fetch(endpointUrl, {
-    method: 'GET',
-    headers: {
-      "User-Agent": "v2RecentSearchJS",
-      "authorization": `${token}`,
-      "Content-Type": "application/json",
-    }
-  })
-
-  if (res.body) {
-      return res.json();
-  } else {
-      throw new Error('Unsuccessful request');
-  }
-
-}
-
-
-// Recebe um id de usuário (author_id) e retorna informações sobre o usuário.
-export const getUserInfo = async (id) => {
-  const endpointUrl = `https://cors.eu.org/https://api.twitter.com/2/users?ids=${id}&user.fields=created_at,description,entities,id,location,name,profile_image_url,url,username`; 
-  
-
-  const res = await fetch(endpointUrl, {
-    method: 'GET',
-    headers: {
-      "User-Agent": "v2RecentSearchJS",
-      "authorization": `${token}`,
-      "Content-Type": "application/json",
-    }
-  })
-
-  if (res.body) {
-      return res.json();
-  } else {
-      throw new Error('Unsuccessful request');
-  }
-
-}
-
-
-// Obtém e organiza as informações que serão inseridas em cada card de tweet, retornando um array de objetos, onde cada objeto conterá as informações p/ um card.
-const selectTweetCardInfo = async (hashtag) => {  
-  const lastTweetsByHashtag = await fetchLastTweets(hashtag)
-  const tweets = await lastTweetsByHashtag.data
-  
-  const tweetCardsInfo = []
-
-  for (let t in tweets) {
-    const tweetInfo = await getTweetInfo(tweets[t].id)
-    const userInfo = await getUserInfo(tweets[t].author_id)
-    
-    tweetCardsInfo.push({
-      username: userInfo.data[0].username,
-      userPic: userInfo.data[0].profile_image_url,
-      text: tweetInfo.data[0].text,
-      tweetId: tweetInfo.data[0].id,
-    })
-  }
-  
-  
-  
-  
-  return tweetCardsInfo
-  
-}
-
-// Obtém e organiza as informações que serão inseridas em cada card de imagem, retornando um array de objetos, onde cada objeto conterá as informações p/ um card.
-const selectImageCardInfo = async (hashtag) => {  
-  const lastImagesByHashtag = await fetchLastTweetsImages(hashtag)
-  const tweetsImages = await lastImagesByHashtag.data
-  
-  const imageCardsInfo = []
-
-  for (let t in tweetsImages) {
-    const tweetInfo = await getTweetInfo(tweetsImages[t].id)
-    const userInfo = await getUserInfo(tweetsImages[t].author_id)
-    
-    tweetInfo.includes.media[0].type === 'photo' && tweetInfo.data[0].entities.urls[0].url !== undefined && imageCardsInfo.push({
-      username: userInfo.data[0].username,
-      image: tweetInfo.includes.media[0].url,
-      tweetUrl: tweetInfo.data[0].entities.urls[0].url
-    })
-  }
-  
-  return imageCardsInfo
-  
-}
-
-selectImageCardInfo('cup').then(data=>console.log(data))
+fetchLastTweetsImages('carro').then(data=>console.log(data.includes))
 
 // selectTweetCardInfo('dsadsd').then(data=>console.log(data))
 

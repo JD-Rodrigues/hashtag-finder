@@ -4,46 +4,88 @@ import searchIcon from "../../../public/images/icons/icon-search.svg"
 import { useEffect, useState } from "react"
 import { TweetCard } from "../../components/tweetCard"
 import { ImageCard } from "../../components/imageCard"
-import { recordSearches, searchValidation } from "../../services/index.js"
+import { fetchLastTweetsImages, recordSearches, searchValidation } from '../../services'
 
 export const Home = () => {
 
   const [resultTab, setResultTab] = useState('tweets')
-  const [search, setSearch] = useState('')
+  const [search, setSearch] = useState('Brasil')
   const [galeryMargin, setGaleryMargin] = useState(0)
+  const [tweetResults, setTweetResults] = useState([])
+  const [imageResults, setImageResults] = useState([])
+  
+
   
   const handleSearch = (e) => {
-    setSearch(e.target.value)    
+    setSearch(e.target.value.replace(/[^a-zA-Z0-9]/g, '')) 
   }
  
   const submitSearch = (e) => {
     e.preventDefault()
-    if(searchValidation(search.replace('#',''))){
-      recordSearches(search.replace('#','')) 
+    if(searchValidation(search) === true){
+      recordSearches(search)
+      getResults(search)
+      setGaleryMargin(0)   
     }
 
     document.querySelector('form').reset()   
     
   }
 
+  const getResults = async (hashtag) => {
+    const results = await fetchLastTweetsImages(hashtag)
+    // localStorage.setItem('results', JSON.stringify(results))
+    const tweets = []
+    const images = []
+    console.log(results)
+    for(let r in results.data) {
+      if(results.includes.media[r].type === 'photo') {
+        // const user = await getUserInfo(results.data[r].author_id)
+        tweets.length < 10 && tweets.push(
+          <li key={results.data[r].id}>
+            <TweetCard 
+              profilePic = {results.includes.users[r].profile_image_url}
+              username = {results.includes.users[r].username}
+              text = {results.data[r].text}
+              id = {results.data[r].id}
+            />
+          </li>
+        )
+
+        images.push(
+          <li key={results.data[r].id}>
+            <ImageCard
+              image = {results.includes.media[r].url} 
+              username = {results.includes.users[r].username}
+              id = {results.data[r].id}
+            />
+          </li>
+        )
+      }
+    }
+    
+
+    setTweetResults(tweets)
+    setImageResults(images)
+    setSearch('')
+  }
+
   
-  const watchResize = () => {
+  const watchSize = () => {
     window.innerWidth > 899 ? setResultTab('both'): setResultTab('tweets')
   }
   
   useEffect(()=>{
-    watchResize()
-    window.addEventListener('resize', watchResize)
-
+    watchSize()
+    window.addEventListener('resize', watchSize)
+    getResults(search)
+    
     return () => {
-      window.removeEventListener('resize', watchResize)
+      window.removeEventListener('resize', watchSize)
     }
     
   },[])
 
-  useEffect(()=> {
-
-  })
 
   
   return(
@@ -66,7 +108,7 @@ export const Home = () => {
         <p className={styles.result__subtitle}>
           Exibindo os 10 resultados mais recentes para 
           <span> 
-            {` #natureza`}
+            
           </span>
         </p>  
         <div className={styles.result__tabs}>
@@ -77,18 +119,9 @@ export const Home = () => {
           
           resultTab === 'tweets' 
           && 
-            <div className={styles.result__tweets}>
-              <TweetCard />
-              <TweetCard />
-              <TweetCard />
-              <TweetCard />
-              <TweetCard />
-              <TweetCard />
-              <TweetCard />
-              <TweetCard />
-              <TweetCard />
-              <TweetCard />
-            </div>
+            <ul className={styles.result__tweets}>
+              {tweetResults}
+            </ul>
         }
 
         {
@@ -98,21 +131,10 @@ export const Home = () => {
               <div onClick={()=>setGaleryMargin(galeryMargin < 0 ? galeryMargin + 51 : 0)} className={`${styles.slide__button} ${styles.slide__button__left}`}></div>
               <div onClick={()=>setGaleryMargin(galeryMargin > -153 ? galeryMargin - 51 : -153)} className={`${styles.slide__button} ${styles.slide__button__right}`}></div>
             </div>
-            <div className={styles.result__images} style={{left: `${galeryMargin}%`}}>
-                <ImageCard />
-                <ImageCard />
-                <ImageCard />
-                <ImageCard />
-                <ImageCard />
-                <ImageCard />
-                <ImageCard />
-                <ImageCard />
-                <ImageCard />
-                <ImageCard />
-            </div>
-          </div>
-            
-          
+            <ul className={styles.result__images} style={{left: `${galeryMargin}%`}}>
+              {imageResults} 
+            </ul>
+          </div>           
         }
           
         {
@@ -123,31 +145,16 @@ export const Home = () => {
                 <div onClick={()=>setGaleryMargin(galeryMargin < 0 ? galeryMargin + 51 : 0)} className={`${styles.slide__button} ${styles.slide__button__left}`}></div>
                 <div onClick={()=>setGaleryMargin(galeryMargin > -153 ? galeryMargin - 51 : -153)} className={`${styles.slide__button} ${styles.slide__button__right}`}></div>
               </div>
-              <div className={styles.result__images} style={{left: `${galeryMargin}%`}}>
-                <ImageCard />
-                <ImageCard />
-                <ImageCard />
-                <ImageCard />
-                <ImageCard />
-                <ImageCard />
-                <ImageCard />
-                <ImageCard />
-                <ImageCard />
-                <ImageCard />
-              </div>
+              <ul 
+                className={styles.result__images} 
+                style={{left: `${galeryMargin}%`}}
+              >
+               {imageResults} 
+              </ul>
             </div>
-            <div className={styles.result__tweets}>
-              <TweetCard />
-              <TweetCard />
-              <TweetCard />
-              <TweetCard />
-              <TweetCard />
-              <TweetCard />
-              <TweetCard />
-              <TweetCard />
-              <TweetCard />
-              <TweetCard />
-            </div>
+            <ul className={styles.result__tweets}>
+              {tweetResults}
+            </ul>
           </div>
         }
         
