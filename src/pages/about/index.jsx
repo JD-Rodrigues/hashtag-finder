@@ -94,7 +94,7 @@ export const About = () => {
                 <a href={time[1].Github} target='_blank' >
                   <img src={git} className={styles.icons__git} ></img>
                   </a>
-                  <a href={time[1].Email} target='_blank' >
+                  <a href={`mailto:${time[1].Email}`}  target='_blank' >
                   <img src={email} className={styles.icons__mail} ></img>
                   </a>
                   <a href={time[1].LinkedIn} target='_blank' >
@@ -112,7 +112,7 @@ export const About = () => {
                 <a href={time[2].Github} target='_blank' >
                   <img src={git} className={styles.icons__git} ></img>
                   </a>
-                  <a href={time[2].Email} target='_blank' >
+                  <a href={`mailto:${time[2].Email}`}  target='_blank' >
                   <img src={email} className={styles.icons__mail} ></img>
                   </a>
                   <a href={time[2].LinkedIn} target='_blank' >
@@ -130,7 +130,7 @@ export const About = () => {
                 <a href={time[3].Github} target='_blank' >
                   <img src={git} className={styles.icons__git} ></img>
                   </a>
-                  <a href={time[3].Email} target='_blank' >
+                  <a href={`mailto:${time[3].Email}`}  target='_blank' >
                   <img src={email} className={styles.icons__mail} ></img>
                   </a>
                   <a href={time[3].LinkedIn} target='_blank' >
