@@ -1,5 +1,6 @@
 .main{
     width:100%;
+    display: none;
 }
 
 .main:first-child{
@@ -21,6 +22,7 @@
     margin-bottom: 24px;
 }
 .main__container{
+    /*TODO */
     display: flex;
     justify-content: space-between;
     margin: 20.56px 0 11.44px 0;
@@ -62,4 +64,20 @@
     .container__hashtag{
         font-size: 1.5em;
     }
+}
+
+
+/**/
+div[data-item="true"]{
+    /* background: green; */
+    /* opacity: 1; */
+    display: block;
+}
+div[data-item="false"]{
+    /* transition: 1s; */
+    background: red;
+    /* opacity: 0; */
+    /* transition: .2s; */
+    display: initial;
+    
 }
