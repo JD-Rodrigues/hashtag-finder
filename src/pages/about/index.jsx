@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
+import { Helmet } from 'react-helmet'
 
+//import useDocumentTitle from "@tanem/use-document-title";
 import styles from "./about.module.css"
 import ilustration from '/public/images/icons/about-ilustration.svg'
 //import logo from '/images/icons/logo.svg'
@@ -38,10 +40,18 @@ export const About = () => {
       
     }, []);
 
-
+   
 
   return(
+    
+    
     <div>
+      <Helmet>
+                <meta charSet="utf-8" />
+                <title>hashTagfinder | Sobre</title>
+               <link rel="canonical" href="" />
+               <meta name="description" content="Descrição do projeto e a equipe que o produziu" />
+      </Helmet>
       <div className={styles.box__fist__section}>
         <div className={styles.fist__section} >
           <div className={styles.text__box} >

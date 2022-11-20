@@ -5,6 +5,7 @@ import { useEffect, useState } from "react"
 import { TweetCard } from "../../components/tweetCard"
 import { ImageCard } from "../../components/imageCard"
 import { fetchLastTweetsImages, recordSearches, searchValidation } from '../../services'
+import { Helmet } from 'react-helmet'
 
 export const Home = () => {
 
@@ -90,6 +91,12 @@ export const Home = () => {
   
   return(
     <div className={styles.main}>
+      <Helmet>
+                <meta charSet="utf-8" />
+                <title>hashTagfinder | Home</title>
+               <link rel="canonical" href="" />
+               <meta name="description" content="Busque seus twitters preferidos" />
+      </Helmet>
       <FirstSection>
         <div className={styles.search__section}>
           <div className={styles.search__section__text}>

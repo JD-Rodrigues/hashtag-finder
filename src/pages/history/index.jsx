@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import HeadSeo from "../../components/HeadSeo/HeadSeo";
 import { ListHastag } from "../../components/listHastag/ListHastag";
+import { Helmet } from 'react-helmet'
 
 // os estilos são importados pela styles
 import styles from "./history.module.css";
@@ -172,6 +173,14 @@ export const History = () => {
 
       {/* <HeadTitle title={"Historico"} /> */}
       <div className={styles.main}>
+
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>hashTagfinder | Histórico de Buscas</title>
+        <link rel="canonical" href="" />
+        <meta name="description" content="Encontre seus Twitter buscados anteriormente" />
+      </Helmet>
+
         <div className={styles.container}>
           <h1 className={styles.container__title}>Buscas realizadas</h1>
           <div className={styles.container__table}>
