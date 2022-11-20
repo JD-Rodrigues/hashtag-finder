@@ -4,7 +4,9 @@ import searchIcon from "../../../public/images/icons/icon-search.svg"
 import { useEffect, useState } from "react"
 import { TweetCard } from "../../components/tweetCard"
 import { ImageCard } from "../../components/imageCard"
-import { fetchLastTweetsImages, recordSearches, searchValidation } from '../../services'
+import { fetchLastTweetsImages, recordSearches, searchValidation } from '../../services';
+
+
 
 export const Home = () => {
 
@@ -14,7 +16,8 @@ export const Home = () => {
   const [tweetResults, setTweetResults] = useState([])
   const [imageResults, setImageResults] = useState([])
   
-
+  
+  
   
   const handleSearch = (e) => {
     setSearch(e.target.value.replace(/[^a-zA-Z0-9]/g, '')) 
@@ -34,30 +37,28 @@ export const Home = () => {
 
   const getResults = async (hashtag) => {
     const results = await fetchLastTweetsImages(hashtag)
-    // localStorage.setItem('results', JSON.stringify(results))
     const tweets = []
     const images = []
-    console.log(results)
+    
     for(let r in results.data) {
       if(results.includes.media[r].type === 'photo') {
-        // const user = await getUserInfo(results.data[r].author_id)
-        tweets.length < 10 && tweets.push(
-          <li key={results.data[r].id}>
+        tweets.push(
+          <li key={ results.data[r].id}>
             <TweetCard 
-              profilePic = {results.includes.users[r].profile_image_url}
-              username = {results.includes.users[r].username}
-              text = {results.data[r].text}
-              id = {results.data[r].id}
+              profilePic = { results.includes.users[r].profile_image_url}
+              username = { results.includes.users[r].username}
+              text = { results.data[r].text}
+              id = { results.data[r].id}
             />
           </li>
         )
 
         images.push(
-          <li key={results.data[r].id}>
+          <li key={ results.data[r].id}>
             <ImageCard
-              image = {results.includes.media[r].url} 
-              username = {results.includes.users[r].username}
-              id = {results.data[r].id}
+              image = { await results.includes.media[r].url} 
+              username = { results.includes.users[r].username}
+              id = { results.data[r].id}
             />
           </li>
         )
@@ -78,7 +79,9 @@ export const Home = () => {
   useEffect(()=>{
     watchSize()
     window.addEventListener('resize', watchSize)
+    
     getResults(search)
+    
     
     return () => {
       window.removeEventListener('resize', watchSize)
@@ -153,7 +156,7 @@ export const Home = () => {
               </ul>
             </div>
             <ul className={styles.result__tweets}>
-              {tweetResults}
+              {tweetResults}         
             </ul>
           </div>
         }

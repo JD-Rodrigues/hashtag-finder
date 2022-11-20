@@ -1,8 +1,8 @@
 import Airtable from "airtable"
 
-const token = 'Bearer AAAAAAAAAAAAAAAAAAAAAHP0jQEAAAAA54TVPY6HCRhs24q4dN8j0OQ%2FtXg%3DRiUs0TmxSw99xcNkeGWxoO3xpfV1V1KlvTubUDhqndcGZyHeJT'
+// const token = 'Bearer AAAAAAAAAAAAAAAAAAAAAHP0jQEAAAAA54TVPY6HCRhs24q4dN8j0OQ%2FtXg%3DRiUs0TmxSw99xcNkeGWxoO3xpfV1V1KlvTubUDhqndcGZyHeJT'
 
-// const token = 'Bearer AAAAAAAAAAAAAAAAAAAAAFlKHgEAAAAApBW4nRyRkiogluzAbXlS4KuHlMU%3DFcR7r8N19LRnMHLVmYlFsod6Be6zUvZD2rxATotl6mLPAh2UEX'
+const token = 'Bearer AAAAAAAAAAAAAAAAAAAAAFlKHgEAAAAApBW4nRyRkiogluzAbXlS4KuHlMU%3DFcR7r8N19LRnMHLVmYlFsod6Be6zUvZD2rxATotl6mLPAh2UEX'
 const date = new Date()
 const today = date.getTime()
 const base = new Airtable({apiKey: 'keyz8BAZKCTGY5dB1'}).base('app6wQWfM6eJngkD4');
