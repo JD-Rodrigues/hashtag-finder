@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import  HeadSeo from "../../components/HeadSeo/HeadSeo";
+import HeadSeo from "../../components/HeadSeo/HeadSeo";
 import { ListHastag } from "../../components/listHastag/ListHastag";
 
 // os estilos são importados pela styles
@@ -18,7 +18,6 @@ export const History = () => {
   const [canObserver, setCanbserver] = useState(false);
   //alerta o fim da pagina
   const [listEnd, setListEnd] = useState(false);
-  //animação de carregamento
 
   function convertForHour(dataRaw) {
     //converte para hora e minuto
@@ -38,8 +37,6 @@ export const History = () => {
     }).format(dataRaw);
     return newDate;
   }
-  //a url da api utilizada
-  const url = `https://api.airtable.com/v0/app6wQWfM6eJngkD4/Buscas?view=Grid+view&filterByFormula=Squad+%3D+%2708-22%27+&fields%5B%5D=fldJeVwUsVuykwDEF&fields%5B%5D=fldHsOM8iwd6I0efy&fields%5B%5D=fldtviHDOVNS7wZge&pageSize=${currentPage}&maxRecords=100&&sort%5B0%5D%5Bfield%5D=Data&sort%5B0%5D%5Bdirection%5D=desc`;
 
   useEffect(() => {
     //primeira requesição quando entra no site
@@ -47,7 +44,15 @@ export const History = () => {
       setCanbserver(true);
       fetch(
         //fazendo uma requesição na api da airtable
-        `${url}`,
+        "https://api.airtable.com/v0/app6wQWfM6eJngkD4/Buscas?filterByFormula=" +
+          encodeURI("({Squad}='08-22')") +
+          "&filterByFormula" +
+          encodeURI(" NOT({Squad} = '') ") +
+          `&pageSize=${currentPage}&&sort` +
+          encodeURI("[0][field]=Data") +
+          "&sort" +
+          encodeURI("[0][direction]=desc"),
+
         {
           headers: {
             Authorization: `Bearer keyz8BAZKCTGY5dB1`,
@@ -95,7 +100,69 @@ export const History = () => {
     }
   }, [offset]);
 
-  
+  // useEffect(() => {
+  //   const observadorMap = new IntersectionObserver(
+  //     (entries) => {
+  //       // console.log("🚀 ~ file: index.jsx ~ line 110 ~ observadorMap ~ entries", entries)
+  //       entries.forEach((item) => {
+  //         console.log(item.target.children);
+  //       });
+  //     },
+  //     {
+  //       root: document.getElementById("map"),
+  //     }
+  //   );
+
+  //   observadorMap.observe(document.getElementById("map"));
+  // }, [hashtagData.length]);
+
+  /* como o scroll infinito pode ser pesado por diversas divs o codigo abaixo tenta resolver esse 
+  quesito */
+  useEffect(() => {
+    /* das diversas vezes que fiz o codigo o intersectionObserver precisaria de um elemento do dom estatico
+    como é um fetch ele não consegui observar*/
+
+    /*eu seleciono todos os componentes que tiverem o atributo DATA-ITEM que é um booleano e os transformo em array
+     */
+    const listArray = Array.from(document.querySelectorAll("[data-item]"));
+
+    /* para usar o interSectionObserver preciso que eles já estão renderizados por isso esse if */
+    if (!!listArray.length && listArray.length >= 1) {
+      /* quando iniciado a pagina o interSectionObserver já procura o que observer já ó executando esse if
+       só é ativado depois da primeira requesição */
+      if (canObserver) {
+        const observerT = new IntersectionObserver(
+          (entries, t) => {
+            console.log(entries, t);
+            entries.forEach((item) => {
+              if (!item.isIntersecting & (item.intersectionRatio == 0)) {
+                item.target.setAttribute("data-item", "false");
+              } else {
+                item.target.setAttribute("data-item", "true");
+              }
+            });
+          },
+          {
+            /* o root seria como width:100% e height:100vh de toda a janela da pagina, mas estou colocando  ocontainer__list
+            como referencia do interSectionObserver que ele deve me dizer se os elementos estão visiveis ou não dentro da ul que está dentro do container__list que tem como id MAP*/
+            root: document.getElementById("map"),
+            threshold: [0, 0.01, 0.5, 1],
+            rootMargin: " 10px 20px -30px 40px", //" 10px 20px 30px 40px"
+          }
+        );
+
+        listArray.forEach(
+          /*aqui estou dizendo para o interSectionObserver observar cada um das divs*/
+          (item) => observerT.observe(item)
+        );
+      } else {
+        null;
+      }
+    } else {
+      null;
+    }
+  }, [hashtagData.length]);
+
   return (
     <>
       <HeadSeo
@@ -116,9 +183,9 @@ export const History = () => {
               </div>
             </div>
           </div>
-          <div className={styles.container__list}>
+          <div id="map" className={styles.container__list}>
             {/* renderiza de forma condicional se tiver hastag ou não */}
-            <ul className={"map"}>
+            <ul>
               {hashtagData.length >= 1 ? (
                 hashtagData.map((item, index) => {
                   return (
