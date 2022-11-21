@@ -49,6 +49,7 @@
     border-radius:0 0 14px 14px;
     /*TODO elemento tem que ter + 15*/margin-top: -15px;
     overflow: auto;
+
     scroll-behavior: smooth;
     font-size: 1.5em;
     padding:  0 6px 0 6.8px;

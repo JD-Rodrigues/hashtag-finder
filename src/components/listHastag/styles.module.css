@@ -1,6 +1,7 @@
 .main{
     width:100%;
     display: none;
+    animation: slide_left .4s linear;
 }
 
 .main:first-child{
@@ -10,7 +11,6 @@
 .main + .main{ 
  /*colocará um borda se o MAIN estiver seguido de MAIN*/
     border-bottom: 1px solid #41558E;
-    animation: slide_left .4s linear alternate
 }
 @keyframes slide_left {
     from{
@@ -35,7 +35,7 @@
     font-family: var(--typo-rubik);
 }
 .main__container div span:last-child{
-    margin-left: calc(55px - 10.2px - 10px) ;
+    margin-left: calc(55px - 10.2px - 0px) ;
 }
 .container__hashtag{
     color: var(--text-white-first);
@@ -67,17 +67,12 @@
 }
 
 
-/**/
+/* pelo data-item nos componentes eu consigo setar se ele estiver visivel ou não*/
+/*caso visive coloca um display block*/
 div[data-item="true"]{
-    /* background: green; */
-    /* opacity: 1; */
     display: block;
 }
+/*caso o elemento não esteja visivel ele coloca o display none está como padráo */
 div[data-item="false"]{
-    /* transition: 1s; */
-    background: red;
-    /* opacity: 0; */
-    /* transition: .2s; */
     display: initial;
-    
 }

@@ -83,10 +83,10 @@ export const History = () => {
         const interserctionObserver = new IntersectionObserver((entries) => {
           if (entries.some((entry) => entry.isIntersecting)) {
             //execua 3s depois do SENTINELA for visivel
+            setCanbserver(false);
             setTimeout(() => {
               setCurrentPage((atual) => atual + 10);
             }, 3000);
-            setCanbserver(false);
           }
         });
         // ele está observando a li com o ID SENTINELA
@@ -127,15 +127,14 @@ export const History = () => {
     const listArray = Array.from(document.querySelectorAll("[data-item]"));
 
     /* para usar o interSectionObserver preciso que eles já estão renderizados por isso esse if */
-    if (!!listArray.length && listArray.length >= 1) {
+    if (!!listArray.length && listArray.length >= 30) {
       /* quando iniciado a pagina o interSectionObserver já procura o que observer já ó executando esse if
        só é ativado depois da primeira requesição */
       if (canObserver) {
         const observerT = new IntersectionObserver(
-          (entries, t) => {
-            console.log(entries, t);
+          (entries) => {
             entries.forEach((item) => {
-              if (!item.isIntersecting & (item.intersectionRatio == 0)) {
+              if ( item.intersectionRatio == 0) {
                 item.target.setAttribute("data-item", "false");
               } else {
                 item.target.setAttribute("data-item", "true");
@@ -146,8 +145,8 @@ export const History = () => {
             /* o root seria como width:100% e height:100vh de toda a janela da pagina, mas estou colocando  ocontainer__list
             como referencia do interSectionObserver que ele deve me dizer se os elementos estão visiveis ou não dentro da ul que está dentro do container__list que tem como id MAP*/
             root: document.getElementById("map"),
-            threshold: [0, 0.01, 0.5, 1],
-            rootMargin: " 10px 20px -30px 40px", //" 10px 20px 30px 40px"
+            threshold: [0, 0.01, 0.5, 0.8, 1],
+            rootMargin: " 0px 0px 10px 0px", //" 10px 20px 30px 40px"
           }
         );
 
