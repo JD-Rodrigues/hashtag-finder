@@ -107,13 +107,11 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/sobre" element={<About />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/buscas" 
-            element={
+          <Route path='/buscas' element={
             <PrivateRoute>
-              <History/>
+              <History />
             </PrivateRoute>
-            } 
-          />
+          }/>
         </Routes>
       <Footer />
     </div>

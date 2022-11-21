@@ -12,8 +12,9 @@ export const Login = () => {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
   // Verifica se a senha e email estão corretos para poder navegar ou não.
+
   const auth = async (e) => {
-    e.preventDefault() 
+    e.preventDefault()
     const email = document.getElementById('email').value;
     const senha = document.getElementById('password').value;
     if (await validateLogin(email, senha) === true) {
