@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
-import HeadSeo from "../../components/HeadSeo/HeadSeo";
 import { ListHastag } from "../../components/listHastag/ListHastag";
-import { Helmet } from 'react-helmet'
+import { Helmet } from "react-helmet";
 
 // os estilos são importados pela styles
 import styles from "./history.module.css";
@@ -101,22 +100,6 @@ export const History = () => {
     }
   }, [offset]);
 
-  // useEffect(() => {
-  //   const observadorMap = new IntersectionObserver(
-  //     (entries) => {
-  //       // console.log("🚀 ~ file: index.jsx ~ line 110 ~ observadorMap ~ entries", entries)
-  //       entries.forEach((item) => {
-  //         console.log(item.target.children);
-  //       });
-  //     },
-  //     {
-  //       root: document.getElementById("map"),
-  //     }
-  //   );
-
-  //   observadorMap.observe(document.getElementById("map"));
-  // }, [hashtagData.length]);
-
   /* como o scroll infinito pode ser pesado por diversas divs o codigo abaixo tenta resolver esse 
   quesito */
   useEffect(() => {
@@ -135,7 +118,7 @@ export const History = () => {
         const observerT = new IntersectionObserver(
           (entries) => {
             entries.forEach((item) => {
-              if ( item.intersectionRatio == 0) {
+              if (item.intersectionRatio == 0) {
                 item.target.setAttribute("data-item", "false");
               } else {
                 item.target.setAttribute("data-item", "true");
@@ -165,20 +148,16 @@ export const History = () => {
 
   return (
     <>
-      <HeadSeo
-        title={"Historico"}
-        description={"Suas buscas recentes aparecerão aqui"}
-      />
-
-      {/* <HeadTitle title={"Historico"} /> */}
       <div className={styles.main}>
-
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>hashTagfinder | Histórico de Buscas</title>
-        <link rel="canonical" href="" />
-        <meta name="description" content="Encontre seus Twitter buscados anteriormente" />
-      </Helmet>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>hashTagfinder | Histórico de Buscas</title>
+          <link rel="canonical" href="" />
+          <meta
+            name="description"
+            content="Encontre seus Twitter buscados anteriormente"
+          />
+        </Helmet>
 
         <div className={styles.container}>
           <h1 className={styles.container__title}>Buscas realizadas</h1>
