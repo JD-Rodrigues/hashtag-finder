@@ -60,7 +60,6 @@ export const getLogin = () => {
   })
 }
 
-
 //Registra as buscas em uma tabela do Airtable
 export const recordSearches = async (hashtag) => {
   base('Buscas').create([

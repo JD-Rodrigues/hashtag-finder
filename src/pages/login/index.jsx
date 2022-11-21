@@ -10,7 +10,6 @@ import { Helmet } from 'react-helmet'
 export const Login = () => {
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
-  // Navegar para outra página ao logar
   const navigate = useNavigate();
   // Verifica se a senha e email estão corretos para poder navegar ou não.
   const auth = async (e) => {
