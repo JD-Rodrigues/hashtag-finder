@@ -5,7 +5,7 @@ import styles from "./styles.module.css";
 
 export const ListHastag = (props) => {
   return (
-    <div data-item className={`${styles.main} `}>
+    <div data-item="true" className={`${styles.main} `}>
       <div className={styles.main__container}>
         <span title={props.hashtag} className={styles.container__hashtag}>
           {props.hashtag}

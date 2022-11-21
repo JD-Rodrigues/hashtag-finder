@@ -4,12 +4,12 @@ import { useState } from 'react';
 import { getLogin, validateLogin } from '../../services';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet'
 
 
 export const Login = () => {
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
-  // Navegar para outra página ao logar
   const navigate = useNavigate();
   // Verifica se a senha e email estão corretos para poder navegar ou não.
   const auth = async (e) => {
@@ -28,6 +28,12 @@ export const Login = () => {
   return(
     <FirstSection>
       <div className={styles.container}>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>hashTagfinder | Login</title>
+        <link rel="canonical" href="" />
+        <meta name="description" content="Faça seu Login aqui" />
+      </Helmet>
         <form 
         onSubmit={auth}
         className={styles.login__form}>

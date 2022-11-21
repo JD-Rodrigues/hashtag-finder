@@ -12,6 +12,7 @@ import { Home } from "./pages/home"
 import { Login } from "./pages/login"
 import { MenuButton } from "./components/menuButton";
 import { useEffect, useState } from "react";
+import { PrivateRoute } from './pages/login/privateRoute'
 
 
 function App() {
@@ -106,7 +107,13 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/sobre" element={<About />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/buscas" element={<History />} />
+          <Route path="/buscas" 
+            element={
+            <PrivateRoute>
+              <History/>
+            </PrivateRoute>
+            } 
+          />
         </Routes>
       <Footer />
     </div>
