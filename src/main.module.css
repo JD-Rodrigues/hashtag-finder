@@ -85,4 +85,9 @@ html {
   
 }
 
+#end__list__tweets {
+  border: solid red;
+  width: 100%;
+}
+
 
