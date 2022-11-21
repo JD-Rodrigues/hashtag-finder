@@ -91,7 +91,7 @@ export const listMembers = ()=> {
       maxRecords: 4,
       view: "Grid s8"
       
-  }).eachPage(function page(records, fetchNextPage) {  
+    }).eachPage(function page(records, fetchNextPage) {  
       records.forEach(function(record) {
           time.push(record.fields);
       });

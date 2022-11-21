@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
+import { Helmet } from 'react-helmet'
 
+//import useDocumentTitle from "@tanem/use-document-title";
 import styles from "./about.module.css"
 import ilustration from '/public/images/icons/about-ilustration.svg'
 //import logo from '/images/icons/logo.svg'
@@ -38,10 +40,18 @@ export const About = () => {
       
     }, []);
 
-
+   
 
   return(
+    
+    
     <div>
+      <Helmet>
+                <meta charSet="utf-8" />
+                <title>hashTagfinder | Sobre</title>
+               <link rel="canonical" href="" />
+               <meta name="description" content="Descrição do projeto e a equipe que o produziu" />
+      </Helmet>
       <div className={styles.box__fist__section}>
         <div className={styles.fist__section} >
           <div className={styles.text__box} >
@@ -95,7 +105,7 @@ export const About = () => {
                 <a href={time[1].Github} target='_blank' >
                   <img src={git} className={styles.icons__git} ></img>
                   </a>
-                  <a href={time[1].Email} target='_blank' >
+                  <a href={`mailto:${time[1].Email}`}  target='_blank' >
                   <img src={email} className={styles.icons__mail} ></img>
                   </a>
                   <a href={time[1].LinkedIn} target='_blank' >
@@ -113,7 +123,7 @@ export const About = () => {
                 <a href={time[2].Github} target='_blank' >
                   <img src={git} className={styles.icons__git} ></img>
                   </a>
-                  <a href={time[2].Email} target='_blank' >
+                  <a href={`mailto:${time[2].Email}`}  target='_blank' >
                   <img src={email} className={styles.icons__mail} ></img>
                   </a>
                   <a href={time[2].LinkedIn} target='_blank' >
@@ -131,7 +141,7 @@ export const About = () => {
                 <a href={time[3].Github} target='_blank' >
                   <img src={git} className={styles.icons__git} ></img>
                   </a>
-                  <a href={time[3].Email} target='_blank' >
+                  <a href={`mailto:${time[3].Email}`}  target='_blank' >
                   <img src={email} className={styles.icons__mail} ></img>
                   </a>
                   <a href={time[3].LinkedIn} target='_blank' >
