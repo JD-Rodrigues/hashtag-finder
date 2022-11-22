@@ -145,6 +145,14 @@
   background-image: url('../../../public/images/icons/arrow-circle-right.svg');
 }
 
+.form__search {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  align-content: center;
+}
+
 @media (min-width:768px) {
   .search__section {
     row-gap: 100px;
@@ -173,6 +181,8 @@
     width: 100%;
     height: 100%;
     display: flex;
+    align-items: center;
+    align-content: center;
   }
 
   .tab__tweets, .tab__images {
@@ -280,6 +290,14 @@
 
   .image__slide__panel {
     justify-content: flex-start;
+  }
+
+  .form__search {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    align-content: center;
   }
 }
 
