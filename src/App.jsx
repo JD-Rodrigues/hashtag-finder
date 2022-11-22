@@ -17,6 +17,9 @@ import { PrivateRoute } from './pages/login/privateRoute'
 
 function App() {
   const [menuTransparence, setMenuTransparence] = useState(false)
+  const [logged, setLogged] = useState(false)
+
+  
   const location = useLocation()
   const checkScroll = () => {
     if (window.scrollY >=100) {
@@ -29,6 +32,10 @@ function App() {
     window.addEventListener('scroll', () => checkScroll()) 
     
   },[])
+
+  useEffect(()=>{
+    console.log(logged)
+  },[logged])
 
   return (
     <div className="App">
@@ -106,12 +113,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/sobre" element={<About />} />
-          <Route path="/login" element={<Login />} />
-          <Route path='/buscas' element={
-            <PrivateRoute>
-              <History />
-            </PrivateRoute>
-          }/>
+          <Route path="/login" element={<Login setLogged={setLogged}  />} />
+          <Route path='/buscas' element={  <PrivateRoute logged={ logged } />  } />
         </Routes>
       <Footer />
     </div>

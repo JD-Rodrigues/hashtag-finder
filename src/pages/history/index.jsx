@@ -2,11 +2,16 @@ import { useState, useEffect } from "react";
 import { ListHastag } from "../../components/listHastag/ListHastag";
 import { Helmet } from "react-helmet";
 
+
 // os estilos são importados pela styles
 import styles from "./history.module.css";
+import { Navigate, useNavigate } from "react-router-dom";
+import { Login } from "../login";
 
-export const History = () => {
+export const History = ( {logged} ) => {
   //estados
+
+  const navigate = useNavigate()
 
   //hashtags listadas
   const [hashtagData, setHashtagData] = useState([]);
@@ -146,7 +151,8 @@ export const History = () => {
     }
   }, [hashtagData.length]);
 
-  return (
+  if (logged) { 
+    return (
     <>
       <div className={styles.main}>
         <Helmet>
@@ -203,5 +209,5 @@ export const History = () => {
         </div>
       </div>
     </>
-  );
+  ) } else {navigate('/buscas')}
 };
