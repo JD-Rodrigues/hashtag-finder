@@ -6,6 +6,7 @@ import { TweetCard } from "../../components/tweetCard"
 import { ImageCard } from "../../components/imageCard"
 import { fetchLastTweetsImages, recordSearches, searchValidation } from '../../services'
 import { Helmet } from 'react-helmet'
+import { ImageZoom } from "../../components/imageZoom"
 
 
 export const Home = () => {
@@ -17,12 +18,8 @@ export const Home = () => {
   const [tweetSlice, setTweetSlice] = useState()
   let [ tweetsQuant, setTweetsQuant ] = useState(3)
   const [imageResults, setImageResults] = useState([])
-  
-  
-  
-  
-
-  
+  const [selectedImage, setSelectedImage] = useState()
+  const [showImage, setShowImage] = useState(false) 
   
   
   const handleSearch = (e) => {
@@ -61,10 +58,12 @@ export const Home = () => {
 
         images.length < 10 && images.push(
           <li key={ results.data[r].id}>
-            <ImageCard
+            <ImageCard 
+              setShowImage = {setShowImage}
               image = { await results.includes.media[r].url} 
               username = { results.includes.users[r].username}
-              id = { results.data[r].id}
+              setSelectedImage = {setSelectedImage}
+              id = {results.data[r].id}
             />
           </li>
         )
@@ -97,8 +96,11 @@ export const Home = () => {
     return () => {
       window.removeEventListener('resize', watchSize)
     }
+
+    
     
   },[])
+
 
   useEffect(()=>{
     setTweetSlice(tweetResults.slice(0,tweetsQuant))
@@ -114,6 +116,7 @@ export const Home = () => {
                <link rel="canonical" href="" />
                <meta name="description" content="Busque seus twitters preferidos" />
       </Helmet>
+      { showImage && <ImageZoom setShowImage={setShowImage} selectedImage={selectedImage}/>} 
       <FirstSection>
         <div className={styles.search__section}>
           <div className={styles.search__section__text}>
@@ -151,6 +154,7 @@ export const Home = () => {
         {
          resultTab === 'images' &&
           <div className={styles.slide__image__wrapper}>
+            
             <div className={styles.image__slide__panel}>
               <div onClick={()=>setGaleryMargin(galeryMargin < 0 ? galeryMargin + 51 : 0)} className={`${styles.slide__button} ${styles.slide__button__left}`}></div>
               <div onClick={()=>setGaleryMargin(galeryMargin > -153 ? galeryMargin - 51 : -153)} className={`${styles.slide__button} ${styles.slide__button__right}`}></div>
@@ -163,6 +167,7 @@ export const Home = () => {
           
         {
           resultTab === 'both' &&
+          
           <div id="tweets__results" className={styles.result__wrapper}>
             <div className={styles.slide__image__wrapper}>
               <div className={styles.image__slide__panel}>
@@ -184,7 +189,7 @@ export const Home = () => {
             
           </div>
         }
-           
+        
       </section>
       <div id="end__list__tweets"></div>  
     </div>

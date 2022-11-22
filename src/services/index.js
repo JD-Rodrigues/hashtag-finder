@@ -134,7 +134,7 @@ export const fetchLastTweetsImages = async (hashtag) => {
 
 
 
-fetchLastTweetsImages('carro').then(data=>console.log(data.includes))
+fetchLastTweetsImages('carro').then(data=>console.log(data.data))
 
 // selectTweetCardInfo('dsadsd').then(data=>console.log(data))
 
