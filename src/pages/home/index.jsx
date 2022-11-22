@@ -120,7 +120,7 @@ export const Home = () => {
       <FirstSection>
         <div className={styles.search__section}>
           <div className={styles.search__section__text}>
-            <h1 className={styles.title}>Encontre hashtags de maneira fácil.</h1>
+            <h1 className={styles.title}>Encontre hashtags de maneira fácil</h1>
             <p className={styles.description}>Digite o que deseja no campo de buscas e confira os resultados do Twitter abaixo.</p>
           </div>
           <div className={styles.search__wrapper}>
