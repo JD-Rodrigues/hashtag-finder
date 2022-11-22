@@ -172,6 +172,7 @@
   .form__search {
     width: 100%;
     height: 100%;
+    display: flex;
   }
 
   .tab__tweets, .tab__images {

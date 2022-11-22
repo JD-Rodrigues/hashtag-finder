@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet'
 
 
-export const Login = () => {
+export const Login = ({setLogged}) => {
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -18,7 +18,9 @@ export const Login = () => {
     const email = document.getElementById('email').value;
     const senha = document.getElementById('password').value;
     if (await validateLogin(email, senha) === true) {
+      setLogged(true)
       navigate('/buscas')
+      
     } else {
       alert('Usuário e/ou senha inválidos! Verifique seus dados e tente novamente.')
       document.getElementById('email').value=''
