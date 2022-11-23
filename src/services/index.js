@@ -108,7 +108,7 @@ export const listMembers = ()=> {
   })
 }
 
-export const time = await listMembers()
+export const time =  listMembers().then(data=>data)
 
 
 // Recebe uma hastag e retorna os últimos tweets marcados com ela e contendo imagens. O array das imagens pode ser obtida acessando res.includes.media.
