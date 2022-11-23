@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { Helmet } from 'react-helmet'
-
+import styles from './about.module.css'
 //import useDocumentTitle from "@tanem/use-document-title";
-import styles from "./about.module.css"
+
 
 //import aboutTextBlock from '../../services'
 
@@ -16,18 +16,18 @@ import ilustration from '/public/images/icons/about-ilustration.svg'
 import git from '/public/images/icons/icon-github.svg'
 import email from '/public/images/icons/icon-envelope.svg'
 import linkedin from '/public/images/icons/icon-awesome-linkedin.svg'
-import { time } from '../../services'
+import { listMembers, time } from '../../services'
 import { useEffect } from 'react'
 
  
 
 
 
-export const About = () => {
-  
+export const About =  () => {
   const [texto, setTexto] = useState("");
 
   useEffect(() => {
+    
     fetch(
       "https://api.airtable.com/v0/app6wQWfM6eJngkD4/Projeto?filterByFormula=" +
         encodeURI(`({Squad} = '08-22')`),
@@ -84,7 +84,7 @@ export const About = () => {
               
               <div className={styles.cards} >
                 <div id='card__pic' className={styles.card__pic01} ></div>
-                <h2 className={styles.card__name} >{time[0].Nome}</h2>
+                <h2 className={styles.card__name} >{ time[0].Nome}</h2>
                 <p className={styles.card__text} >
                   {time[0].Descrição}
                 </p>
