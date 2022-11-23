@@ -93,6 +93,7 @@ export const listMembers = ()=> {
     }).eachPage(function page(records, fetchNextPage) {  
       records.forEach(function(record) {
           time.push(record.fields);
+          console.log(record.fields)
       });
       fetchNextPage();
   

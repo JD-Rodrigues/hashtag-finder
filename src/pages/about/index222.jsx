@@ -1,73 +1,35 @@
-import React, { useState } from 'react'
-import { Helmet } from 'react-helmet'
 
-//import useDocumentTitle from "@tanem/use-document-title";
 import styles from "./about.module.css"
+//import getRecords from "./base.jsx"
 
-//import aboutTextBlock from '../../services'
 
+import App from './App'
 
 
 
 import ilustration from '/public/images/icons/about-ilustration.svg'
-//import logo from '/images/icons/logo.svg'
-// import userIcon from '/images/icons/icon-user-alt.svg'
+import logo from '/images/icons/logo.svg'
+//import userIcon from '/images/icons/icon-user-alt.svg'
 //import infoIcon from '/images/icons/icon-info-circle.svg'
 import git from '/public/images/icons/icon-github.svg'
 import email from '/public/images/icons/icon-envelope.svg'
 import linkedin from '/public/images/icons/icon-awesome-linkedin.svg'
-import { time } from '../../services'
-import { useEffect } from 'react'
-
- 
-
-
 
 export const About = () => {
-  
-  const [texto, setTexto] = useState("");
-
-  useEffect(() => {
-    fetch(
-      "https://api.airtable.com/v0/app6wQWfM6eJngkD4/Projeto?filterByFormula=" +
-        encodeURI(`({Squad} = '08-22')`),
-      {
-        method: "GET",
-        headers: {
-          Authorization: 'Bearer keyz8BAZKCTGY5dB1',
-        },
-      }
-    )
-      .then((res) => res.json())
-      .then((response) => {
-        setTexto(response.records[0].fields.Sobre);
-      })
-      .catch((erro) => console.log(erro));
-      
-    }, []);
-
-   
-
   return(
-    
-    
     <div>
-      <Helmet>
-                <meta charSet="utf-8" />
-                <title>hashTagfinder | Sobre</title>
-               <link rel="canonical" href="" />
-               <meta name="description" content="Descrição do projeto e a equipe que o produziu" />
-      </Helmet>
+      
+
+
+
+
       <div className={styles.box__fist__section}>
         <div className={styles.fist__section} >
           <div className={styles.text__box} >
             <h1 className={styles.text__title} >Sobre o projeto</h1>
             <p className={styles.text__about} >
-            
-              {
-                texto
-              }
-
+              
+              {App}
             </p>
           </div>
           
@@ -80,79 +42,63 @@ export const About = () => {
         <div className={styles.cards__container} >  
           <h1 className={styles.cards__tittle} > Quem somos </h1>  
 
-            <div className={styles.cards__list}> 
+            <div className={styles.cards__list} > 
               
               <div className={styles.cards} >
                 <div id='card__pic' className={styles.card__pic01} ></div>
-                <h2 className={styles.card__name} >{time[0].Nome}</h2>
+                <h2 className={styles.card__name} >Bruno Ferreira</h2>
                 <p className={styles.card__text} >
-                  {time[0].Descrição}
+                Dev front-end | Html | Css | JavaScript | React | TypeScript | NextJs | Designer | UX / UI |
                 </p>
                 <div className={styles.icons__list}>
-                  <a href={time[0].Github} target='_blank' >
                   <img src={git} className={styles.icons__git} ></img>
-                  </a>
-                  <a href={`mailto:${time[0].Email}`} target='_blank' >
                   <img src={email} className={styles.icons__mail} ></img>
-                  
-                  </a>
-                  <a href={time[0].LinkedIn} target='_blank' >
                   <img src={linkedin} className={styles.icons__linkedin} ></img>
-                  </a>
                 </div>
-              </div>             
+              </div>  
+            
+
+            
               <div className={styles.cards} >
                 <div className={styles.card__pic02} ></div>
-                <h2 className={styles.card__name} > {time[1].Nome} </h2>
+                <h2 className={styles.card__name} > Eliel Silva </h2>
                 <p className={styles.card__text} >
-                  {time[1].Descrição}
-                </p>
+                19 anos, Desenvolvedor web front-end em formação
+                  </p>
                 <div className={styles.icons__list}>
-                <a href={time[1].Github} target='_blank' >
                   <img src={git} className={styles.icons__git} ></img>
-                  </a>
-                  <a href={`mailto:${time[1].Email}`}  target='_blank' >
                   <img src={email} className={styles.icons__mail} ></img>
-                  </a>
-                  <a href={time[1].LinkedIn} target='_blank' >
                   <img src={linkedin} className={styles.icons__linkedin} ></img>
-                  </a>
                 </div>
               </div>  
+            
+
+            
               <div className={styles.cards} >
                 <div className={styles.card__pic03} ></div>
-                <h2 className={styles.card__name} >{time[2].Nome}</h2>
+                <h2 className={styles.card__name} >Domingos Rodrigues</h2>
                 <p className={styles.card__text} >
-                  {time[2].Descrição}
+                Desenvolvedor web front-end | React | NextJs | TypeScript |
                 </p>
                 <div className={styles.icons__list}>
-                <a href={time[2].Github} target='_blank' >
                   <img src={git} className={styles.icons__git} ></img>
-                  </a>
-                  <a href={`mailto:${time[2].Email}`}  target='_blank' >
                   <img src={email} className={styles.icons__mail} ></img>
-                  </a>
-                  <a href={time[2].LinkedIn} target='_blank' >
                   <img src={linkedin} className={styles.icons__linkedin} ></img>
-                  </a>
                 </div>
               </div>  
+            
+          
+            
               <div className={styles.cards} >
                 <div className={styles.card__pic04} ></div>
-                <h2 className={styles.card__name} >{time[3].Nome}</h2>
+                <h2 className={styles.card__name} >Julio Gabriel </h2>
                 <p className={styles.card__text} >
-                  {time[3].Descrição}
+                Desenvolvedor Front-end & Designer UX/UI
                 </p>
                 <div className={styles.icons__list}>
-                <a href={time[3].Github} target='_blank' >
                   <img src={git} className={styles.icons__git} ></img>
-                  </a>
-                  <a href={`mailto:${time[3].Email}`}  target='_blank' >
                   <img src={email} className={styles.icons__mail} ></img>
-                  </a>
-                  <a href={time[3].LinkedIn} target='_blank' >
                   <img src={linkedin} className={styles.icons__linkedin} ></img>
-                  </a>
                 </div>
               </div>  
             </div>
@@ -187,14 +133,30 @@ export const About = () => {
         </div>    
       </div>
 
-
-<!-- <a href={time[0].Email} target='_blank' >
-      
-
-
-
-
       */
-     
-     
+
+
+
       
+/*
+export const About = () => {
+  
+  const base = new Airtable({apiKey: "keyz8BAZKCTGY5dB1"}).base("app6wQWfM6eJngkD4");
+
+  function App(){
+    
+    
+    useEffect(() => {
+      base("Projeto")
+      .select({view: 'Grid s8'})
+      .eachPage((records, fetchNextPage) => {
+        
+        console.log(records);
+        fetchNextPage();
+      })
+    }, []);
+  }
+   App()
+
+
+   */
