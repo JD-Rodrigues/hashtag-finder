@@ -114,11 +114,12 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/sobre" element={<About />} />
           <Route path="/login" element={<Login setLogged={setLogged}  />} />
-          <Route path='/buscas' element={  <PrivateRoute logged={ logged } />  } />
+          <Route path='/buscas' element={  <History logged={logged} />  } />
         </Routes>
       <Footer />
     </div>
   )
 }
+// <PrivateRoute logged={ logged } />  }
 
 export default App
