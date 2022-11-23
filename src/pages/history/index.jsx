@@ -151,7 +151,7 @@ export const History = ( {logged} ) => {
     }
   }, [hashtagData.length]);
 
-  if (logged) { 
+  if (logged ===true) { 
     return (
     <>
       <div className={styles.main}>
@@ -209,5 +209,5 @@ export const History = ( {logged} ) => {
         </div>
       </div>
     </>
-  ) } else {navigate('/buscas')}
+  ) } else {navigate('/login')}
 };
