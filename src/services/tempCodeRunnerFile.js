@@ -1,1 +1,1 @@
-og(time.then(data=>data))
+tweetUrl: tweetInfo.data[0].entities.urls[0].url
