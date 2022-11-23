@@ -93,6 +93,7 @@ export const listMembers = ()=> {
     }).eachPage(function page(records, fetchNextPage) {  
       records.forEach(function(record) {
           time.push(record.fields);
+      
       });
       fetchNextPage();
   
@@ -107,7 +108,6 @@ export const listMembers = ()=> {
   })
 }
 
-export const time =  listMembers().then(data=>data)
 
 
 // Recebe uma hastag e retorna os últimos tweets marcados com ela e contendo imagens. O array das imagens pode ser obtida acessando res.includes.media.
@@ -141,6 +141,6 @@ fetchLastTweetsImages('carro').then(data=>console.log(data.data))
 // getTweetInfo('1593647734237569027').then(data=>console.log(data))
 // getUserInfo('326915887').then(data=>console.log(data))
 
-
+export const time = await listMembers()
 
 
