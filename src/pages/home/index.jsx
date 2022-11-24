@@ -135,7 +135,7 @@ export const Home = () => {
         <p className={styles.result__subtitle}>
           Exibindo os 10 resultados mais recentes para 
           <span> 
-            
+            {` "Brasil"`}
           </span>
         </p>  
         <div className={styles.result__tabs}>
