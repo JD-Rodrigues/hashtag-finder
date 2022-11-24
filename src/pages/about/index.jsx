@@ -1,18 +1,7 @@
 import React, { useState } from 'react'
 import { Helmet } from 'react-helmet'
 import styles from './about.module.css'
-//import useDocumentTitle from "@tanem/use-document-title";
-
-
-//import aboutTextBlock from '../../services'
-
-
-
-
 import ilustration from '/public/images/icons/about-ilustration.svg'
-//import logo from '/images/icons/logo.svg'
-// import userIcon from '/images/icons/icon-user-alt.svg'
-//import infoIcon from '/images/icons/icon-info-circle.svg'
 import git from '/public/images/icons/icon-github.svg'
 import email from '/public/images/icons/icon-envelope.svg'
 import linkedin from '/public/images/icons/icon-awesome-linkedin.svg'
@@ -169,32 +158,6 @@ export const About =  () => {
 
 
 
-/* 
 
-< div className={styles.header__about}>
-        <div className={styles.header__logo}>
-          <div className={styles.logo} >
-            <img className={styles.logo} src={logo} alt="" />
-          </div>
-        </div>
-        <div className={styles.box__btn} >
-          <button type='button' id={styles.btn__sobre} > 
-          <img className={styles.info__icon} 
-          src={infoIcon} alt=""></img> SOBRE </button>
-          <button type='button' id={styles.btn__login} > 
-          <img className={styles.user__icon} 
-          src={userIcon} alt=""></img> LOGIN </button>
-        </div>    
-      </div>
-
-
-<!-- <a href={time[0].Email} target='_blank' >
-      
-
-
-
-
-      */
-     
      
       
