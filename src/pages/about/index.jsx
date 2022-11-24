@@ -1,22 +1,42 @@
 import React, { useState } from 'react'
 import { Helmet } from 'react-helmet'
 import styles from './about.module.css'
+//import useDocumentTitle from "@tanem/use-document-title";
+
+
+//import aboutTextBlock from '../../services'
+
+
+
+
 import ilustration from '/public/images/icons/about-ilustration.svg'
-import git from '/public/images/icons/icon-github.svg'
+//import logo from '/images/icons/logo.svg'
+// import userIcon from '/images/icons/icon-user-alt.svg'
+//import infoIcon from '/images/icons/icon-info-circle.svg'
+// import git from '/public/images/icons/icon-github.svg'
 import email from '/public/images/icons/icon-envelope.svg'
 import linkedin from '/public/images/icons/icon-awesome-linkedin.svg'
-import { listMembers, time } from '../../services'
+import { initialStateMembers, listMembers} from '../../services'
 import { useEffect } from 'react'
-
- 
-
+import { CardMember } from '../../components/cardMember'
 
 
 export const About =  () => {
   const [texto, setTexto] = useState("");
+  const [members, setMembers] = useState(initialStateMembers);
+  
+  async function getUsers(){
+    const time = await listMembers()
+    const equipe = time.map((member, index)=> {
+      return <li key={member.Nome}><CardMember member={member} index={index}/></li>
+    })
+
+    setMembers(equipe)
+  }
+  
 
   useEffect(() => {
-    
+    listMembers().then(data=>setMembers(data))
     fetch(
       "https://api.airtable.com/v0/app6wQWfM6eJngkD4/Projeto?filterByFormula=" +
         encodeURI(`({Squad} = '08-22')`),
@@ -69,9 +89,12 @@ export const About =  () => {
         <div className={styles.cards__container} >  
           <h1 className={styles.cards__tittle} > Quem somos </h1>  
 
-            <div className={styles.cards__list}> 
+            <ul className={styles.cards__list}> 
+            {members.map((member, index)=> {
+      return <li key={index}><CardMember member={member} /></li>
+    })}
               
-              <div className={styles.cards} >
+              {/* <div className={styles.cards} >
                 <div id='card__pic' className={styles.card__pic01} ></div>
                 <h2 className={styles.card__name} >{ time[0].Nome}</h2>
                 <p className={styles.card__text} >
@@ -143,8 +166,8 @@ export const About =  () => {
                   <img src={linkedin} className={styles.icons__linkedin} ></img>
                   </a>
                 </div>
-              </div>  
-            </div>
+            </div>  */}
+            </ul> 
           
 
         </div>

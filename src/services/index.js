@@ -92,8 +92,7 @@ export const listMembers = ()=> {
       
     }).eachPage(function page(records, fetchNextPage) {  
       records.forEach(function(record) {
-          time.push(record.fields);
-      
+          time.push(record.fields);      
       });
       fetchNextPage();
   
@@ -132,15 +131,15 @@ export const fetchLastTweetsImages = async (hashtag) => {
 
 }
 
+export const initialStateMembers = [{Squad: '', Nome: '', Descrição: '', Github: '', Email: '', Imagem: [{url:''}]},{Squad: '', Nome: '', Descrição: '', Github: '', Email: '', Imagem: [{url:''}]},{Squad: '', Nome: '', Descrição: '', Github: '', Email: '', Imagem: [{url:''}]},{Squad: '', Nome: '', Descrição: '', Github: '', Email: '', Imagem: [{url:''}]}]
 
 
-fetchLastTweetsImages('carro').then(data=>console.log(data.data))
+// fetchLastTweetsImages('carro').then(data=>console.log(data.data))
 
 // selectTweetCardInfo('dsadsd').then(data=>console.log(data))
 
 // getTweetInfo('1593647734237569027').then(data=>console.log(data))
 // getUserInfo('326915887').then(data=>console.log(data))
 
-export const time = await listMembers()
-
+// export const time = await listMembers()
 
