@@ -28,6 +28,7 @@ export const Home = () => {
  
   const submitSearch = (e) => {
     e.preventDefault()
+    document.querySelector('#search__term').innerHTML = ` "${search}"`
     if(searchValidation(search) === true){
       recordSearches(search)
       getResults(search)
@@ -74,7 +75,6 @@ export const Home = () => {
     setTweetResults(tweets)
     setTweetSlice(tweets.slice(0,tweetsQuant))
     setImageResults(images)
-    setSearch('')
   }
 
   
@@ -83,21 +83,22 @@ export const Home = () => {
   }
   
   useEffect(()=>{
+    console.log(search)
     watchSize()
     window.addEventListener('resize', watchSize)
     const observer = new IntersectionObserver((entries)=>{
       if(entries[0].isIntersecting === true) {
        setTweetsQuant(tweetsQuant ++)
-       console.log(tweetsQuant)
       }
      })
     observer.observe(document.querySelector('#end__list__tweets'))  
     getResults(search)
+
+    document.querySelector('#search__term').innerHTML = ` "${search}"`
+    
     return () => {
       window.removeEventListener('resize', watchSize)
-    }
-
-    
+    }    
     
   },[])
 
@@ -134,8 +135,8 @@ export const Home = () => {
       <section className={styles.search__result}>
         <p className={styles.result__subtitle}>
           Exibindo os 10 resultados mais recentes para 
-          <span> 
-            {` "Brasil"`}
+          <span id = "search__term"> 
+            
           </span>
         </p>  
         <div className={styles.result__tabs}>
@@ -191,7 +192,6 @@ export const Home = () => {
         }
         
       </section>
-      <div id="end__list__tweets"></div>  
     </div>
   )
 }
