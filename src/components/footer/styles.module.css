@@ -9,6 +9,13 @@
   font-family: 'Rubik';
   font-size: 10px;
 }
+.footer__text {
+  text-align: center;
+}
+
+
+
+
 
 @media (min-width:768px) {
   .footer {

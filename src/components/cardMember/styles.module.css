@@ -1,195 +1,101 @@
-* {
-  margin: 0;
-  padding: 80px 0 0 0;
-  
-}
 
-body {
-  background-color: #1E3E7B;
-}
 
-.logo {
-  margin-left: 32px;
-  width: 239px;
-  height: 42px;
-}
 
-.footer {
-  height: 203px;
-}
 
-button {
-  border:none;
-  border-radius: 25px;
-  color: #0B1741;
-  letter-spacing: 2.55px;
-  text-transform: uppercase;
-  transition: 0.3s;
-  width: 170px;
-  height: 49px;
-  margin-left: 35px;
-}
-
-#btn__sobre {
-  background-color: var(--cyan);
-}
-
-#btn__login {
-  background-color: var(--light-blue);
-}
-
-.box__fist__section {
-  width: 100%;
-  height: auto;
-  background: linear-gradient(0deg, #0a1744 0%, #090979 53%, #0b298c 100%);    
-}
-
-.fist__section {
-  width: 80%;
-  height: 1033px;
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.text__box {
-  margin: 133px 0 274px 0;
-}
-
-.text__title {
-  font-weight: bold;
-  color: #ffffff;
-  font-size: 82px;
-  margin-bottom: 40px;
-}
-
-.text__about {
-  color: #ffffff;
-  width: 763px;
-  font-size: 21px;
-  line-height: 38px;
-}
-
-.img__decor__frame {
-  width: 100%;
-}
-
-.img__decor {
-  width: auto;
-  height: auto;
-}
-
-.second__section {
-  height: auto;
-  background-color: #0A1744;
-}
-
-.cards__tittle {
-  font-weight: bold;
-  font-size: 54px;
-  color: #ffffff;
-}
-
-.cards__container {
-  margin-left: auto;
-  margin-right: auto;
-  width: 70%;
-  height: auto;
+li {
+    display: flex;
+    justify-content: center;
 }
 
 .cards__list {
-  padding-top: 108px;
-  padding-bottom: 188px;
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-items: center;
-  justify-content: space-between;
+    padding-top: 60px;
+    padding-bottom: 188px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-items: center;
+    justify-content: space-between;
+  
 }
 
 .cards {
-  width: 369px;
-  height: 461px;
-  border-radius: 10px;
-  border: 1px solid #FFFFFF24;
-  box-shadow: 0px 5px 10px #5538EE14;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 35px 40px 35px 40px;
+    margin: 20px;
+    width: 369px;
+    height: 461px;
+    border-radius: 10px;
+    border: 1px solid #FFFFFF24;
+    box-shadow: 0px 5px 10px #5538EE14;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 35px 40px 35px 40px;
   
 }
 
 .card__pic {
-  width: 180px;
-  height: 180px;
-  border-radius: 100%;
+    width: 180px;
+    height: 180px;
+    border-radius: 100%;
 }
 
 
 
 .card__name {
-  font-weight: bold;
-  width: 100%;
-  color: #72EFDB;
-  font-size: 28px;
-  text-align: center;
-  padding-top: 22px;
-  padding-bottom: 22px;
+    font-weight: bold;
+    width: 100%;
+    color: #72EFDB;
+    font-size: 28px;
+    text-align: center;
+    padding-top: 22px;
+    padding-bottom: 22px;
 }
 
 .card__text {
-  width: 100%;
-  color: #D9D9D9;
-  font-size: 19px;
-  line-height: 25px;
-  text-align: center;
-  padding-bottom: 22px;
+    width: 100%;
+    color: #D9D9D9;
+    font-size: 19px;
+    line-height: 25px;
+    text-align: center;
+    padding-bottom: 22px;
 }
 
 .icons__list {
-  width: 100%;
-  display: flex;
-  justify-content: space-evenly;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .icons__git {
-  cursor: pointer;
-  width: 30px;
-  height: 30px;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
 }
 
+
+
 .icons__mail {
-  cursor: pointer;
-  width: 30px;
-  height: 30px;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
 }
 
 .icons__linkedin {
-  cursor: pointer;
-  width: 30px;
-  height: 30px;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
 }
 
-/*  responsividade  */
+a {
+    display: flex;
+    justify-content: center;
+}
+
+/*  responsividade  
 
 @media (min-width:768px)  {
-  .fist__section {
-      
-      width: 92%;
-      height: auto;
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      justify-content: space-between;
-  }
 
-  .text__box {
-      margin: 45px 0 56px 0;
-  }
+
+
 
   .text__title {
       width: auto;
@@ -471,3 +377,4 @@ button {
   }
 
 }
+*/
