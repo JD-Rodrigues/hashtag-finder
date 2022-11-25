@@ -15,8 +15,8 @@ export const Home = () => {
   const [search, setSearch] = useState('Brasil')
   const [galeryMargin, setGaleryMargin] = useState(0)
   const [tweetResults, setTweetResults] = useState([])
+  let [ tweetsQuant, setTweetsQuant ] = useState(2)
   const [tweetSlice, setTweetSlice] = useState()
-  let [ tweetsQuant, setTweetsQuant ] = useState(3)
   const [imageResults, setImageResults] = useState([])
   const [selectedImage, setSelectedImage] = useState()
   const [showImage, setShowImage] = useState(false) 
@@ -81,19 +81,22 @@ export const Home = () => {
   const watchSize = () => {
     window.innerWidth > 899 ? setResultTab('both'): setResultTab('tweets')
   }
+
+  
   
   useEffect(()=>{
-    console.log(search)
     watchSize()
-    window.addEventListener('resize', watchSize)
-    const observer = new IntersectionObserver((entries)=>{
-      if(entries[0].isIntersecting === true) {
-       setTweetsQuant(tweetsQuant ++)
-      }
-     })
-    observer.observe(document.querySelector('#end__list__tweets'))  
-    getResults(search)
 
+    window.addEventListener('resize', watchSize)   
+    
+    const observer = new IntersectionObserver((entries)=>{      
+       setTweetsQuant(tweetsQuant ++)  
+      //  scroll(tweetResults, tweetsQuant)       
+     })
+     
+    observer.observe(document.querySelector('#end__list__tweets'))  
+    
+    getResults(search)
     document.querySelector('#search__term').innerHTML = ` "${search}"`
     
     return () => {
@@ -103,8 +106,9 @@ export const Home = () => {
   },[])
 
 
-  useEffect(()=>{
+  useEffect(()=>{        
     setTweetSlice(tweetResults.slice(0,tweetsQuant))
+    console.log(tweetsQuant)
   },[tweetsQuant])
 
 
@@ -154,8 +158,7 @@ export const Home = () => {
 
         {
          resultTab === 'images' &&
-          <div className={styles.slide__image__wrapper}>
-            
+          <div className={styles.slide__image__wrapper}>            
             <div className={styles.image__slide__panel}>
               <div onClick={()=>setGaleryMargin(galeryMargin < 0 ? galeryMargin + 51 : 0)} className={`${styles.slide__button} ${styles.slide__button__left}`}></div>
               <div onClick={()=>setGaleryMargin(galeryMargin > -153 ? galeryMargin - 51 : -153)} className={`${styles.slide__button} ${styles.slide__button__right}`}></div>
