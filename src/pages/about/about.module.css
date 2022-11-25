@@ -1,41 +1,13 @@
 * {
     margin: 0;
+    width: 100%;
     padding: 80px 0 0 0;
-    
-}
-
-body {
-    background-color: #1E3E7B;
 }
 
 .logo {
     margin-left: 32px;
     width: 239px;
     height: 42px;
-}
-
-.footer {
-    height: 203px;
-}
-
-button {
-    border:none;
-    border-radius: 25px;
-    color: #0B1741;
-    letter-spacing: 2.55px;
-    text-transform: uppercase;
-    transition: 0.3s;
-    width: 170px;
-    height: 49px;
-    margin-left: 35px;
-}
-
-#btn__sobre {
-    background-color: var(--cyan);
-}
-
-#btn__login {
-    background-color: var(--light-blue);
 }
 
 .box__fist__section {
@@ -45,30 +17,30 @@ button {
 }
 
 .fist__section {
-    width: 80%;
-    height: 1033px;
+    width: 100%;
+    padding: 0 30px 0 30px;
+    height: auto;
     display: flex;
     align-items: center;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    flex-direction: column;
     margin-left: auto;
     margin-right: auto;
 }
 
 .text__box {
-    margin: 133px 0 274px 0;
+    margin: 120px 0 40px 0;
 }
 
 .text__title {
     font-weight: bold;
     color: #ffffff;
-    font-size: 82px;
+    font-size: 60px;
     margin-bottom: 40px;
 }
 
 .text__about {
     color: #ffffff;
-    width: 763px;
+    width: auto;
     font-size: 21px;
     line-height: 38px;
 }
@@ -94,13 +66,15 @@ button {
 }
 
 .cards__container {
+    padding-top: 60px;
     margin-left: auto;
     margin-right: auto;
-    width: 70%;
+    width: 92%;
     height: auto;
 }
 
 .cards__list {
+    flex-basis: auto;
     padding-top: 108px;
     padding-bottom: 188px;
     width: 100%;
@@ -110,101 +84,6 @@ button {
     justify-content: space-between;
 }
 
-.cards {
-    width: 369px;
-    height: 461px;
-    border-radius: 10px;
-    border: 1px solid #FFFFFF24;
-    box-shadow: 0px 5px 10px #5538EE14;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 35px 40px 35px 40px;
-    
-}
-
-.card__pic01 {
-    width: 178px;
-    height: 178px;
-    background-image: url(https://avatars.githubusercontent.com/u/101682774?v=4);
-    background-size: 110% 110%;
-    background-repeat: no-repeat;
-    background-position: center;
-    border-radius: 100%;
-}
-
-.card__pic02 {
-    width: 178px;
-    height: 178px;
-    background-image: url(https://avatars.githubusercontent.com/u/101727770?v=4);
-    background-size: 110% 110%;
-    background-repeat: no-repeat;
-    background-position: center;
-    border-radius: 100%;
-}
-
-.card__pic03 {
-    width: 178px;
-    height: 178px;
-    background-image: url(https://avatars.githubusercontent.com/u/87840631?v=4);
-    background-size: 110% 110%;
-    background-repeat: no-repeat;
-    background-position: center;
-    border-radius: 100%;
-}
-
-.card__pic04 {
-    width: 178px;
-    height: 178px;
-    background-image: url(https://avatars.githubusercontent.com/u/101745105?v=4);
-    background-size: 110% 110%;
-    background-repeat: no-repeat;
-    background-position: center;
-    border-radius: 100%;
-}
-
-.card__name {
-    font-weight: bold;
-    width: 100%;
-    color: #72EFDB;
-    font-size: 28px;
-    text-align: center;
-    padding-top: 22px;
-    padding-bottom: 22px;
-}
-
-.card__text {
-    width: 100%;
-    color: #D9D9D9;
-    font-size: 19px;
-    line-height: 25px;
-    text-align: center;
-    padding-bottom: 22px;
-}
-
-.icons__list {
-    width: 100%;
-    display: flex;
-    justify-content: space-evenly;
-}
-
-.icons__git {
-    cursor: pointer;
-    width: 30px;
-    height: 30px;
-}
-
-.icons__mail {
-    cursor: pointer;
-    width: 30px;
-    height: 30px;
-}
-
-.icons__linkedin {
-    cursor: pointer;
-    width: 30px;
-    height: 30px;
-}
 
 /*  responsividade  */
 
@@ -235,7 +114,6 @@ button {
         color: #ffffff;
         width: auto;
         font-size: 18px;
-        
     }    
 
     .img__decor {
@@ -267,52 +145,6 @@ button {
         flex-wrap: wrap;
         justify-items: center;
         justify-content: space-between;
-    }
-
-    .cards {
-        width: 100%;
-        margin-top: 46px;
-        border-radius: 10px;
-        border: 1px solid #FFFFFF24;
-        box-shadow: 0px 5px 10px #5538EE14;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .card__pic01 {
-        width: 182px;
-        height: 182px;
-    }
-
-    .card__pic02 {
-        width: 182px;
-        height: 182px;
-    }
-
-    .card__pic03 {
-        width: 182px;
-        height: 182px;
-    }
-
-    .card__pic04 {
-        width: 182px;
-        height: 182px;
-    }
-
-    .card__text {
-        max-width: 300px;
-        color: #D9D9D9;
-        font-size: 19px;
-        line-height: 25px;
-        text-align: center;
-        padding-bottom: 24px;
-    }
-
-    .icons__list {
-        max-width: 300px;
-        display: flex;
-        justify-content: space-evenly;
     }
 }
 
@@ -346,8 +178,6 @@ button {
         justify-content: center;
     }
 
-    
-
     .img__decor__frame {
         width: 100%;
     }
@@ -359,31 +189,17 @@ button {
         margin-top: 54px;
     }
 
-    .cards__container {
+    .cards__list {
+        padding-top: 78px;
+        padding-bottom: 90px;
+        width: 100%;
         margin-left: auto;
         margin-right: auto;
-        width: 92%;
-        height: auto;
-    }
+        display: grid;
+        grid-template-columns: auto auto ;
+        justify-content: space-evenly;
+    }    
 
-    .cards__tittle {
-        font-weight: bold;
-        font-size: 33px;
-        color: #ffffff;
-    }
-
-    .cards__list {
-        padding-top: 26px;
-        padding-bottom: 90px;
-        
-      
-    }
-
-    .cards {
-        width: 369px;
-        height: 461px;
-        margin-top: 46px;
-    }
 }
 
 @media (min-width:1112px) {
@@ -394,27 +210,40 @@ button {
         color: #ffffff;
         font-size: 62px;
         margin-bottom: 31px;
+        margin-top: 0;
         }
 
     .text__about {
         color: #ffffff;
         width: auto;
         font-size: 20px;
-        line-height: 26px;
+        line-height: 38px;
+        margin: 0px 0 56px 0;
         
     } 
-
-    .fist__section {
-        width: 92%;
-        height: auto;
-        display: flex;
-        align-items: center;
-        flex-wrap: wrap;
-        justify-content: space-between;
+    .text__box {
+        width: 100%;
+        margin: 0px 0 56px 0;
     }
 
-    
+    .fist__section {
+        padding-top: 200px;
+        width: 100%;
+        height: auto;
+        display: flex;
+        align-items: flex-start;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        margin-left: auto;
+        margin-right: auto;
+        flex-direction: row;
+    }
 
+    .img__decor {
+        width: 100%;
+        height: auto;
+        margin: 50px 0 50px 30px;
+    }
     
     .cards__list {
         padding-top: 78px;
@@ -422,14 +251,13 @@ button {
         width: 100%;
         margin-left: auto;
         margin-right: auto;
-        display: flex;
-        flex-wrap: wrap;
-        justify-items: center;
-        justify-content: space-between;
+        display: grid;
+        grid-template-columns: auto auto ;
+        justify-content: space-evenly;
     }
 
     .cards {
-        width: 300px;
+        min-width: 250;
         height: 461px;
         margin-top: 46px;
     }
@@ -457,7 +285,6 @@ button {
         font-weight: bold;
         color: #ffffff;
         font-size: 82px;
-       
     }
     
     .text__about {
@@ -476,6 +303,15 @@ button {
         width: auto;
         height: auto;
     }
+    .cards__list {
+        padding-top: 78px;
+        padding-bottom: 90px;
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+    }
 }
 
 @media (min-width:1920px) {
@@ -485,21 +321,7 @@ button {
         width: 100%;
         margin-left: auto;
         margin-right: auto;
-        display: flex;
-        flex-wrap: wrap;
-        justify-items: center;
-        justify-content: space-evenly;
+        display: grid;
+        grid-template-columns: auto auto auto auto;
     }
-
-    .cards {
-        width: 400px;
-        margin-top: 46px;
-        border-radius: 10px;
-        border: 1px solid #FFFFFF24;
-        box-shadow: 0px 5px 10px #5538EE14;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
 }
