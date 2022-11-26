@@ -19,7 +19,7 @@ li {
 }
 
 .cards {
-    margin: 20px;
+    /* margin: 20px; */
     width: 369px;
     height: 461px;
     border-radius: 10px;
@@ -29,7 +29,6 @@ li {
     flex-direction: column;
     align-items: center;
     padding: 35px 40px 35px 40px;
-  
 }
 
 .card__pic {
@@ -88,6 +87,12 @@ li {
 a {
     display: flex;
     justify-content: center;
+}
+
+@media (max-width:389px) {
+    .cards {
+        width: 300px;
+    }
 }
 
 /*  responsividade  
