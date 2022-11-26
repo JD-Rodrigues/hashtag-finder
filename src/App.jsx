@@ -13,12 +13,13 @@ import { Login } from "./pages/login"
 import { MenuButton } from "./components/menuButton";
 import { useEffect, useState } from "react";
 import { PrivateRoute } from './pages/login/privateRoute'
+import {useNavigate} from 'react-router-dom'
 
 
 function App() {
   const [menuTransparence, setMenuTransparence] = useState(false)
   const [logged, setLogged] = useState(false)
-
+  const navigate = useNavigate()
   
   const location = useLocation()
   const checkScroll = () => {
@@ -41,7 +42,7 @@ function App() {
     <div className="App">
       <header className={menuTransparence ? styles.header__fixed : styles.header}>
           <div className={styles.title}>
-            <img src={logo} alt='logo' className={styles.logo} />
+           <img onClick={()=>navigate("/")} src={logo} alt='logo' className={styles.logo} />
           </div>
           <div className={styles.menu}>
             {
