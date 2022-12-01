@@ -45,3 +45,17 @@ dialog {
   padding: 10px;
   background-color:black;
 }
+
+@media (max-width:899px) {
+  dialog {
+    max-width: 90%;
+  }
+
+  .dialog__wrapper img {
+    max-width: 100%;
+    max-height: auto;
+    object-fit:cover;
+    object-position:bottom;
+  }
+}
+
