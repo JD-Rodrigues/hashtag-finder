@@ -79,9 +79,7 @@ export const About =  () => {
           <h1 className={styles.cards__tittle} > Quem somos </h1>  
 
             <ul className={styles.cards__list}> 
-            {members.map((member, index)=> {
-      return <li key={index}><CardMember member={member} /></li>
-    })}
+            {members}
               
               
             </ul> 
